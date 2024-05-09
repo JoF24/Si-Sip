@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\akun_petaniController;
 use App\Http\Controllers\beranda_loginController;
 use App\Http\Controllers\edit_videoController;
 use App\Http\Controllers\halaman_utamaController;
@@ -58,3 +59,5 @@ Route::get('edit_video',[edit_videoController::class, 'index'])->name('edit_vide
 
 Route::get('melihat_pelatihan_admin',[melihat_pelatihan_adminController::class, 'index'])->name('melihat_pelatihan_admin');
 Route::post('simpan_video',[edit_videoController::class, 'simpan_video'])->name('simpan_video');
+
+Route::get('akun_petani', [akun_petaniController::class, 'index'])->name('akun_petani');
