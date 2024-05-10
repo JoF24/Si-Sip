@@ -178,7 +178,7 @@
         </div>
     </div> --}}
     <div class="d-flex" style="height:150px"></div>
-    <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 350px;">
+    <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 250px;">
         <div class="row">
             <div class="col-4 mb-3">
                 <div class="card warna-footer" style="width:350px;border-top:none;border-bottom:none;border-left:none;border-right:none;">
