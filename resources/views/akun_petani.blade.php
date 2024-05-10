@@ -28,6 +28,27 @@
             font-size: 20px;
             font-weight: 500;
         }
+        .transparent-form {
+            background-color: transparent; /* Hapus warna latar belakang */
+            border: none; /* Hapus border jika ada */
+            opacity: 0.8; /* Atur tingkat transparansi */
+        }
+    
+        .transparent-form input {
+            background-color: transparent; /* Hapus warna latar belakang input */
+            border: none; /* Hapus border input jika ada */
+        }
+        #eyeIcon {
+            width: 20px;
+            cursor: pointer;
+        }
+        .gambar-tombol-edit{
+            width: 115px;
+            height: 47px;
+            background-image: url("gambar/Edit.png");
+            background-size: cover;
+            border: none;   
+        }
     </style>
 </head>
 <body>
@@ -80,8 +101,8 @@
             <h1>Akun</h1>
         </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center" style="height: 600px">
-        <div class="card" style="height: 500px; width:1000px">
+    <div class="d-flex justify-content-center align-items-center" style="height: 700px">
+        <div class="card" style="height: 600px; width:1000px">
             <div class="card-header bg-white">
                 <nav class="navbar navbar-expand-lg bg-white">
                     <div class="container-fluid">
@@ -126,21 +147,33 @@
                             <p>Provinsi<span style="display:inline-block; width: 130px;"></span>: {{ $tampil->provinsi }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Nama Usaha<span style="display:inline-block; width: 130px;"></span>:</p>
+                            <p>Nama Usaha<span style="display:inline-block; width: 105px;"></span>:</p>
                         </div>
                         <div class="col-6">
-                            <p>Username<span style="display:inline-block; width: 130px;"></span>: {{ $tampil->username }}</p>
+                            <p>Username<span style="display:inline-block; width: 110px;"></span>: {{ $tampil->username }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Alamat<span style="display:inline-block; width: 130px;"></span>: {{ $tampil->alamat }}</p>
+                            <p>Alamat<span style="display:inline-block; width: 160px;"></span>: {{ $tampil->alamat }}</p>
                         </div>
                         <div class="col-6">
-                            <label for="showPassword">Password:</label>
-                            <div class="input-group">
-                                <input type="text" id="showPassword" class="form-control" value="{{ $tampil->password }}" readonly>
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">Tampilkan</button>
+                            <div class="d-flex flex-direction-row">
+                                <p>Password<span style="display:inline-block; width: 115px;"></span>:</p>
+                                <div class="input-group transparent-form" style="width: 200px">
+                                    <input type="text" id="showPassword" style="width:150px" class="form-control" value="{{ $tampil->password }}" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn" type="button" id="togglePassword">
+                                            <img src="gambar/hide (1) 1.png" alt="Toggle Password" id="eyeIcon">
+                                        </button>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <p>Kecamatan<span style="display:inline-block; width: 120px;"></span>: {{ $tampil->kecamatan }}</p>
+                        </div>
+                        <div class="col-12 mt-5">
+                            <div class="d-flex justify-content-start">
+                                <a href="" class="btn gambar-tombol-edit" role="button"></a>
                             </div>
                         </div>
                     </div>
@@ -149,7 +182,7 @@
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 350px;">
+    <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 250px;">
         <div class="row">
             <div class="col-4 mb-3">
                 <div class="card warna-footer" style="width:350px;border-top:none;border-bottom:none;border-left:none;border-right:none;">
@@ -196,25 +229,19 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
     <script>
-        document.getElementById("togglePassword").addEventListener("click", function() {
-            var passwordField = document.getElementById("showPassword");
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                passwordField.value = "*".repeat(passwordField.value.length); // Mengganti setiap karakter dengan bintang
-                this.textContent = "Sembunyikan";
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            var passwordField = document.getElementById('showPassword');
+            var eyeIcon = document.getElementById('eyeIcon');
+    
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.src = 'gambar/hide (1) 1.png'; // Ganti gambar mata yang ditutup
             } else {
-                passwordField.type = "password";
-                passwordField.value = "{{ $tampil->password }}"; // Kembalikan nilai password asli
-                this.textContent = "Tampilkan";
+                passwordField.type = 'password';
+                eyeIcon.src = 'gambar/view (1) 1.png'; // Ganti gambar mata yang terbuka
             }
         });
-    </script>
-    
-    
-    
+    </script>      
 </body>
 </html>
