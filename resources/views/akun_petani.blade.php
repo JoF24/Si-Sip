@@ -61,7 +61,7 @@
                         <a class="nav-link navbar-font" href="beranda_login">Halaman Utama</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" aria-current="page" href="pelatihan_admin">Pelatihan</a>
+                        <a class="nav-link navbar-font" aria-current="page" href="pelatihan_petani">Pelatihan</a>
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link navbar-font" href="#">Sertifikasi</a>
@@ -80,15 +80,7 @@
                         <ul class="dropdown-menu">
                             <li><a>Peran: {{ $user->role }}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li>
-                                @if ($user->role == 'Petani')
-                                    <a href="{{ url('akun_petani') . '?data=' . $user->username }}">Akun</a>
-                                @elseif ($user->role == 'Admin')
-                                    <a href="akun_admin">Akun</a>
-                                @elseif ($user->role == 'Fasilitator')
-                                    <a href="akun_admin">Akun</a>
-                                @endif
-                            </li>
+                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}">Akun</a></li>
                             <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
