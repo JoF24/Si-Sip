@@ -197,7 +197,7 @@
                         </div>
                         <div class="col-12 mt-5">
                             <div class="d-flex justify-content-start">
-                                <a href="" class="btn gambar-tombol-edit" role="button"></a>
+                                <a href="edit_akun_petani" class="btn gambar-tombol-edit" role="button"></a>
                             </div>
                         </div>
                     </div>
