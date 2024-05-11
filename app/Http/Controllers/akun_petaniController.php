@@ -17,11 +17,11 @@ class akun_petaniController extends Controller
             $user = $request->session()->get('user');
             $data = $_GET['data'];
             if ($data === 'petani_fasilitator') {
-                $tampil = User::where('role', 'Fasilitator')->get();
-                return view('akun_petani', compact('user','data', 'tampil'));
+                $tampilkan = User::where('role', 'Fasilitator')->get();
+                return view('akun_petani', compact('user','data', 'tampilkan'));
             } else {
-                $tampil = User::where('username', $data)->first();
-                return view('akun_petani', compact('user','data', 'tampil'));
+                $tampilkan = User::where('username', $data)->first();
+                return view('akun_petani', compact('user','data', 'tampilkan'));
             }
         } else {
             // Jika tidak ada data pengguna dalam session, redirect ke halaman login

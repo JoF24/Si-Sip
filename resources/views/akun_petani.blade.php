@@ -33,7 +33,6 @@
             border: none; /* Hapus border jika ada */
             opacity: 0.8; /* Atur tingkat transparansi */
         }
-    
         .transparent-form input {
             background-color: transparent; /* Hapus warna latar belakang input */
             border: none; /* Hapus border input jika ada */
@@ -122,36 +121,69 @@
             </div>
             <div class="card-body">
                 @if ($data === 'petani_fasilitator')
-                    
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center align-middle">No</th>
+                                <th class="text-center align-middle">Nama</th>
+                                <th class="text-center align-middle">Nomor Telepon</th>
+                                <th class="text-center align-middle">Alamat</th>
+                                <th class="text-center align-middle">Kecamatan</th>
+                                <th class="text-center align-middle">Kabupaten</th>
+                                <th class="text-center align-middle">Provinsi</th>
+                                <th class="text-center align-middle">Username</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                            $nomor = 1
+                            ?>
+                            @foreach ($tampilkan as $tampil)
+                            <tr style="height: 70px">
+                                    <td class="text-center align-middle">{{ $nomor }}</td>
+                                    <td class="text-center align-middle">{{ $tampil->nama }}</td>
+                                    <td class="text-center align-middle">{{ $tampil->nomor_telepon }}</td>
+                                    <td class="text-center align-middle">{{ $tampil->alamat }}</td>
+                                    <td class="text-center align-middle">{{ $tampil->kecamatan }}</td>
+                                    <td class="text-center align-middle">{{ $tampil->kabupaten }}</td>
+                                    <td class="text-center align-middle">{{ $tampil->provinsi }}</td>
+                                    <td class="text-center align-middle">{{ $tampil->username }}</td>
+                                </tr>
+                            <?php 
+                            $nomor ++;
+                            ?>
+                            @endforeach
+                        </tbody>
+                    </table>
                 @else
                 <div class="d-flex justify-content-center tulisan">
                     <div class="d-flex justify-content-center row g-3 mt-5" style="width:900px">
                         <div class="col-6">
-                            <p>Nama<span style="display:inline-block; width: 170px;"></span>: {{ $tampil->nama }}</p>
+                            <p>Nama<span style="display:inline-block; width: 170px;"></span>: {{ $tampilkan->nama }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Kabupaten<span style="display:inline-block; width: 100px;"></span>: {{ $tampil->kabupaten }}</p>
+                            <p>Kabupaten<span style="display:inline-block; width: 100px;"></span>: {{ $tampilkan->kabupaten }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Nomor Telepon<span style="display:inline-block; width: 80px;"></span>: {{ $tampil->nomor_telepon }}</p>
+                            <p>Nomor Telepon<span style="display:inline-block; width: 80px;"></span>: {{ $tampilkan->nomor_telepon }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Provinsi<span style="display:inline-block; width: 130px;"></span>: {{ $tampil->provinsi }}</p>
+                            <p>Provinsi<span style="display:inline-block; width: 130px;"></span>: {{ $tampilkan->provinsi }}</p>
                         </div>
                         <div class="col-6">
                             <p>Nama Usaha<span style="display:inline-block; width: 105px;"></span>:</p>
                         </div>
                         <div class="col-6">
-                            <p>Username<span style="display:inline-block; width: 110px;"></span>: {{ $tampil->username }}</p>
+                            <p>Username<span style="display:inline-block; width: 110px;"></span>: {{ $tampilkan->username }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Alamat<span style="display:inline-block; width: 160px;"></span>: {{ $tampil->alamat }}</p>
+                            <p>Alamat<span style="display:inline-block; width: 160px;"></span>: {{ $tampilkan->alamat }}</p>
                         </div>
                         <div class="col-6">
                             <div class="d-flex flex-direction-row">
                                 <p>Password<span style="display:inline-block; width: 115px;"></span>:</p>
                                 <div class="input-group transparent-form" style="width: 200px">
-                                    <input type="text" id="showPassword" style="width:150px" class="form-control" value="{{ $tampil->password }}" readonly>
+                                    <input type="text" id="showPassword" style="width:150px" class="form-control" value="{{ $tampilkan->password }}" readonly>
                                     <div class="input-group-append">
                                         <button class="btn" type="button" id="togglePassword">
                                             <img src="gambar/hide (1) 1.png" alt="Toggle Password" id="eyeIcon">
@@ -161,7 +193,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <p>Kecamatan<span style="display:inline-block; width: 120px;"></span>: {{ $tampil->kecamatan }}</p>
+                            <p>Kecamatan<span style="display:inline-block; width: 120px;"></span>: {{ $tampilkan->kecamatan }}</p>
                         </div>
                         <div class="col-12 mt-5">
                             <div class="d-flex justify-content-start">
