@@ -41,7 +41,7 @@
             cursor: pointer;
         }
         .gambar-tombol-edit{
-            width: 115px;
+            width: 132px;
             height: 47px;
             background-image: url("gambar/Edit.png");
             background-size: cover;
