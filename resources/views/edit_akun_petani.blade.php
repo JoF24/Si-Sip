@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="icon" href="gambar/Logo SI-SIP.png" type="image/x-icon">
-    <title>Registrasi</title>
+    <title>Edit Akun Petani</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .navbar-font{
