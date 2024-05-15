@@ -65,6 +65,8 @@ Route::post('simpan_video',[edit_videoController::class, 'simpan_video'])->name(
 
 Route::get('akun_petani', [akun_petaniController::class, 'index'])->name('akun_petani');
 Route::get('edit_akun_petani', [edit_akun_petaniController::class, 'index'])->name('edit_akun_petani');
+Route::post('simpan_akun_petani', [edit_akun_petaniController::class, 'simpan_akun_petani'])->name('simpan_akun_petani');
 
 Route::get('akun_fasilitator', [akun_fasilitatorController::class, 'index'])->name('akun_fasilitator');
 Route::get('edit_akun_fasilitator', [edit_akun_fasilitatorController::class, 'index'])->name('edit_akun_fasilitator');
+Route::post('simpan_akun_fasilitator', [edit_akun_fasilitatorController::class, 'simpan_akun_fasilitator'])->name('simpan_akun_fasilitator');

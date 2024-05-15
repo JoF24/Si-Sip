@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto px-5 nav-underline">
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="beranda">Halaman Utama</a>
+                        <a class="nav-link navbar-font" href="beranda_login">Halaman Utama</a>
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link navbar-font" href="pelatihan_petani">Pelatihan</a>
@@ -71,8 +71,9 @@
         </div>
     </div>
     <div class="d-flex justify-content-center">
-        <form action="{{route('actionregistrasi')}}" class="row g-3" style="width: 1000px" method="POST" id="formulir">
+        <form action="{{route('simpan_akun_petani')}}" class="row g-3" style="width: 1000px" method="POST" id="formulir" onsubmit="return validateForm()">
             @csrf
+            <input type="text" id="id" name="id" class="hidden" value="{{$user->id}}" style="display:none">
             <div class="col-6 mb-3">
                 <label for="nama" style="font-weight: bold;" class="mb-3">Nama</label>
                 <input type="text" id="nama" name="nama" class="form-control" value="{{ $user->nama }}" required>
@@ -102,8 +103,8 @@
                 </select>
             </div>
             <div class="col-6 mb-3">
-                <label for="alamat" style="font-weight: bold;" class="mb-3">Nama Usaha</label>
-                <input type="text" name="alamat" id="alamat" class="form-control" value="">
+                <label for="nama_usaha" style="font-weight: bold;" class="mb-3">Nama Usaha</label>
+                <input type="text" name="nama_usaha" id="nama_usaha" class="form-control" value="{{ $user->nama_usaha }}" required>
             </div>
             <div class="col-6 mb-3">
                 <label for="username" style="font-weight: bold;" class="mb-3">Username</label>
@@ -130,6 +131,7 @@
             <div class="col-6 mb-3">
                 <label for="konfirmasi_password" class="mb-3" style="font-weight: bold;">Konfirmasi Password</label>
                 <input type="password" class="form-control" name="konfirmasi_password" id="konfirmasi_password" placeholder="Masukkan Ulang Password" required>
+                <span id="konfirmasiPasswordError" class="text-danger"></span>
             </div>
             <div class="col-12 mb-3 d-flex justify-content-end">
                 <button class="btn tombol-simpan mt-4" type="submit">Simpan</button>
@@ -187,5 +189,21 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function validateForm() {
+            var password = document.getElementById('password').value;
+            var konfirmasiPassword = document.getElementById('konfirmasi_password').value;
+            var konfirmasiPasswordError = document.getElementById('konfirmasiPasswordError');
+
+            // Reset error messages
+            konfirmasiPasswordError.textContent = '';
+
+            if (password !== konfirmasiPassword) {
+                konfirmasiPasswordError.textContent = 'Password dan Konfirmasi Password tidak cocok.';
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

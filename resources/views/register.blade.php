@@ -78,7 +78,7 @@
         <h1>Registrasi</h1>
     </div>
     <div class="d-flex justify-content-center">
-        <form action="{{route('actionregistrasi')}}" class="row g-3" style="width: 1000px" method="POST" id="formulir">
+        <form action="{{route('actionregistrasi')}}" class="row g-3" style="width: 1000px" method="POST" id="formulir" onsubmit="return validateForm()">
             @csrf
             <div class="col-6 mb-3">
                 <label for="nama" style="font-weight: bold;" class="mb-3">Nama</label>
@@ -127,6 +127,7 @@
             <div class="col-6 mb-3">
                 <label for="konfirmasi_password" class="mb-3" style="font-weight: bold;">Konfirmasi Password</label>
                 <input type="password" class="form-control" name="konfirmasi_password" id="konfirmasi_password" placeholder="Masukkan Ulang Password" required>
+                <span id="konfirmasiPasswordError" class="text-danger"></span>
             </div>
             <div class="col-6 mb-3">
                 <label for="provinsi" class="mb-3" style="font-weight: bold;">Provinsi</label>
@@ -228,6 +229,22 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script> 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+<script>
+    function validateForm() {
+        var password = document.getElementById('password').value;
+        var konfirmasiPassword = document.getElementById('konfirmasi_password').value;
+        var konfirmasiPasswordError = document.getElementById('konfirmasiPasswordError');
+
+        // Reset error messages
+        konfirmasiPasswordError.textContent = '';
+
+        if (password !== konfirmasiPassword) {
+            konfirmasiPasswordError.textContent = 'Password dan Konfirmasi Password tidak cocok.';
+            return false;
+        }
+        return true;
+    }
+</script>
 {{-- <script>
 document.getElementById('showModalButton').addEventListener('click', function() {
     $('#myModal').modal('hide');

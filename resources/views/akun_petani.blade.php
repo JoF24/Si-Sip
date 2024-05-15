@@ -86,6 +86,16 @@
             </div>            
         </div>
     </nav>
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{session('error')}}
+        </div>
+    @endif    
+    @if(session('message'))
+        <div class="alert alert-success">
+            {{session('message')}}
+        </div>    
+    @endif
     <div class="d-flex justify-content-center align-items-end judul-font" style="height: 100px">
         <div class="d-flex justify-content-start" style="width: 1000px">
             <h1>Akun</h1>
@@ -170,7 +180,7 @@
                             <p>Provinsi<span style="display:inline-block; width: 130px;"></span>: {{ $tampilkan->provinsi }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Nama Usaha<span style="display:inline-block; width: 105px;"></span>:</p>
+                            <p>Nama Usaha<span style="display:inline-block; width: 105px;"></span>: {{ $tampilkan->nama_usaha }}</p>
                         </div>
                         <div class="col-6">
                             <p>Username<span style="display:inline-block; width: 110px;"></span>: {{ $tampilkan->username }}</p>

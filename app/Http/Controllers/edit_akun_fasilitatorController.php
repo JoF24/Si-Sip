@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class edit_akun_fasilitatorController extends Controller
 {
@@ -67,5 +69,26 @@ class edit_akun_fasilitatorController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function simpan_akun_fasilitator(Request $request)
+    {
+        $id = $request->id;
+        // Lakukan pembaruan langsung pada entri yang ada
+        User::where('id', $id)->update([
+            'nama' => $request->nama,
+            'nomor_telepon' => $request->nomor_telepon,
+            'nama_usaha' => $request->nama_usaha,
+            'alamat' => $request->alamat,
+            'kecamatan' => $request->kecamatan,
+            'kabupaten' => $request->kabupaten,
+            'provinsi' => $request->provinsi,
+            'username' => $request->username,
+            'password' => $request->password,
+        ]);
+        
+        // Flash session dan redirect ke rute yang ditentukan
+        Session::flash('message', 'Data Berhasil Disimpan');
+        $user = $request->user();
+        return redirect()->route('akun_fasilitator', ['data' => $user->username]);
     }
 }
