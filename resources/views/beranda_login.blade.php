@@ -58,7 +58,7 @@
                         <a class="nav-link active navbar-font" aria-current="page" href="beranda_login">Halaman Utama</a>
                     </li>
                     <li class="nav-item px-3">
-                        @if ($user->role == 'Petani')
+                        @if ($user->role == 'Petani' || $user->role === 'Fasilitator')
                             <a class="nav-link navbar-font" href="pelatihan_petani">Pelatihan</a>
                         @elseif ($user->role == 'Admin')
                             <a class="nav-link navbar-font" href="pelatihan_admin">Pelatihan</a>
@@ -87,7 +87,7 @@
                                 @elseif ($user->role == 'Admin')
                                     <a href="akun_admin">Akun</a>
                                 @elseif ($user->role == 'Fasilitator')
-                                    <a href="akun_admin">Akun</a>
+                                    <a href="akun_fasilitator">Akun</a>
                                 @endif
                             </li>
                             <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
@@ -139,7 +139,7 @@
             </div>
             <div class="col-md-4 md-3 mb-sm-0">
                 <div class="card" style="width:300px">
-                    <a href="{{ $user->role === 'Petani' ? url('/pelatihan_pengolahan_kopi').'?judul=kosong' : 'pelatihan_admin' }}" style="text-decoration:none; color:inherit">
+                    <a href="{{ $user->role === 'Petani' || $user->role === 'Fasilitator' ? url('/pelatihan_pengolahan_kopi').'?judul=kosong' : 'pelatihan_admin' }}" style="text-decoration:none; color:inherit">
                         <div class="d-flex justify-content-center align-items-center" style="width: 300px;height:300px">
                             <img src="gambar/Pengolahan.png" alt="" style="width: 270px">
                         </div>
