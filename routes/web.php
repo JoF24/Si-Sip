@@ -3,6 +3,7 @@
 use App\Http\Controllers\akun_fasilitatorController;
 use App\Http\Controllers\akun_petaniController;
 use App\Http\Controllers\beranda_loginController;
+use App\Http\Controllers\edit_akun_fasilitatorController;
 use App\Http\Controllers\edit_akun_petaniController;
 use App\Http\Controllers\edit_videoController;
 use App\Http\Controllers\halaman_utamaController;
@@ -66,3 +67,4 @@ Route::get('akun_petani', [akun_petaniController::class, 'index'])->name('akun_p
 Route::get('edit_akun_petani', [edit_akun_petaniController::class, 'index'])->name('edit_akun_petani');
 
 Route::get('akun_fasilitator', [akun_fasilitatorController::class, 'index'])->name('akun_fasilitator');
+Route::get('edit_akun_fasilitator', [edit_akun_fasilitatorController::class, 'index'])->name('edit_akun_fasilitator');
