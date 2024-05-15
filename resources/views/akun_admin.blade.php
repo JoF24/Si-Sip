@@ -59,7 +59,7 @@
                         <a class="nav-link navbar-font" href="beranda_login">Halaman Utama</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" aria-current="page" href="pelatihan_petani">Pelatihan</a>
+                        <a class="nav-link navbar-font" aria-current="page" href="pelatihan_admin">Pelatihan</a>
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link navbar-font" href="#">Sertifikasi</a>
@@ -242,7 +242,7 @@
                         <div class="col-12" style="height: 120px"></div>
                         <div class="col-12 mt-5">
                             <div class="d-flex justify-content-start">
-                                <a href="edit_akun_petani" class="btn gambar-tombol-edit" role="button"></a>
+                                <a href="edit_akun_admin" class="btn gambar-tombol-edit" role="button"></a>
                             </div>
                         </div>
                     </div>
