@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\akun_adminController;
 use App\Http\Controllers\akun_fasilitatorController;
 use App\Http\Controllers\akun_petaniController;
 use App\Http\Controllers\beranda_loginController;
@@ -70,3 +71,5 @@ Route::post('simpan_akun_petani', [edit_akun_petaniController::class, 'simpan_ak
 Route::get('akun_fasilitator', [akun_fasilitatorController::class, 'index'])->name('akun_fasilitator');
 Route::get('edit_akun_fasilitator', [edit_akun_fasilitatorController::class, 'index'])->name('edit_akun_fasilitator');
 Route::post('simpan_akun_fasilitator', [edit_akun_fasilitatorController::class, 'simpan_akun_fasilitator'])->name('simpan_akun_fasilitator');
+
+Route::get('akun_admin', [akun_adminController::class, 'index'])->name('akun_admin');

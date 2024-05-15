@@ -85,7 +85,7 @@
                                 @if ($user->role == 'Petani')
                                     <a href="{{ url('akun_petani') . '?data=' . $user->username }}">Akun</a>
                                 @elseif ($user->role == 'Admin')
-                                    <a href="akun_admin">Akun</a>
+                                    <a href="{{url("akun_admin").'?data=' . $user->username}}">Akun</a>
                                 @elseif ($user->role == 'Fasilitator')
                                     <a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}">Akun</a>
                                 @endif
