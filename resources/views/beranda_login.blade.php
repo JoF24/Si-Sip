@@ -87,7 +87,7 @@
                                 @elseif ($user->role == 'Admin')
                                     <a href="akun_admin">Akun</a>
                                 @elseif ($user->role == 'Fasilitator')
-                                    <a href="akun_fasilitator">Akun</a>
+                                    <a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}">Akun</a>
                                 @endif
                             </li>
                             <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
@@ -124,7 +124,7 @@
         <div class="row">
             <div class="col-md-4 md-3 mb-sm-0">
                 <div class="card" style="width:300px">
-                    <a href="{{ $user->role === 'Petani' ? url('/pelatihan_budidaya_kopi').'?judul=kosong' : 'pelatihan_admin' }}" style="text-decoration:none; color:inherit">
+                    <a href="{{ $user->role === 'Petani'||$user->role === 'Fasilitator' ? url('/pelatihan_budidaya_kopi').'?judul=kosong' : 'pelatihan_admin' }}" style="text-decoration:none; color:inherit">
                         <div class="card" style="width:300px">
                             <div class="d-flex justify-content-center align-items-center" style="width: 300px;height: 300px">
                                 <img src="gambar/Budidaya.png" alt="" style="width:270px">
@@ -152,7 +152,7 @@
             </div>
             <div class="col-md-4 md-3 mb-sm-0">
                 <div class="card" style="width: 300px">
-                    <a href="{{ $user->role === 'Petani' ? url('/pelatihan_pemasaran_kopi').'?judul=kosong' : 'pelatihan_admin' }}" style="text-decoration:none; color:inherit">
+                    <a href="{{ $user->role === 'Petani' || $user->role === 'Fasilitator' ? url('/pelatihan_pemasaran_kopi').'?judul=kosong' : 'pelatihan_admin' }}" style="text-decoration:none; color:inherit">
                         <div class="d-flex justify-content-center align-items-center" style="width:300px; height:300px">
                             <img src="gambar/Pemasaran.png" alt="" style="width:270px">
                         </div>
@@ -166,7 +166,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center mt-4" style="height: 100px">
-        @if ($user->role == 'Petani')
+        @if ($user->role == 'Petani'||$user->role == 'Fasilitator')
             <a class="btn gambar-tombol-lihat" href="pelatihan_petani"></a>
         @elseif ($user->role == 'Admin')
             <a class="btn gambar-tombol-lihat" href="pelatihan_admin"></a>

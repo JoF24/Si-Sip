@@ -5,20 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class akun_petaniController extends Controller
+class akun_fasilitatorController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index(Request $request)
     {
         if ($request->session()->has('user')) {
             // Jika ada data pengguna dalam session, ambil informasi pengguna
             $user = $request->session()->get('user');
             $data = $_GET['data'];
-            if ($data === 'petani_fasilitator') {
-                $tampilkan = User::where('role', 'Fasilitator')->get();
-                return view('akun_petani', compact('user','data', 'tampilkan'));
+            if ($data === 'fasilitator_petani') {
+                $tampilkan = User::where('role', 'Petani')->get();
+                return view('akun_fasilitator', compact('user','data', 'tampilkan'));
             } else {
                 $tampilkan = User::where('username', $data)->first();
-                return view('akun_petani', compact('user','data', 'tampilkan'));
+                return view('akun_fasilitator', compact('user','data', 'tampilkan'));
             }
         } else {
             // Jika tidak ada data pengguna dalam session, redirect ke halaman login

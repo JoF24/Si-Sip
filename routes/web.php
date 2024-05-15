@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\akun_fasilitatorController;
 use App\Http\Controllers\akun_petaniController;
 use App\Http\Controllers\beranda_loginController;
 use App\Http\Controllers\edit_akun_petaniController;
@@ -63,3 +64,5 @@ Route::post('simpan_video',[edit_videoController::class, 'simpan_video'])->name(
 
 Route::get('akun_petani', [akun_petaniController::class, 'index'])->name('akun_petani');
 Route::get('edit_akun_petani', [edit_akun_petaniController::class, 'index'])->name('edit_akun_petani');
+
+Route::get('akun_fasilitator', [akun_fasilitatorController::class, 'index'])->name('akun_fasilitator');
