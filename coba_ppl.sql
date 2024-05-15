@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Bulan Mei 2024 pada 07.29
+-- Waktu pembuatan: 15 Bulan Mei 2024 pada 18.03
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -75,23 +75,27 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(255) NOT NULL,
   `nomor_telepon` bigint(25) DEFAULT NULL,
-  `alamat` varchar(255) NOT NULL,
-  `kecamatan` varchar(255) NOT NULL,
-  `kabupaten` varchar(255) NOT NULL,
-  `provinsi` varchar(255) NOT NULL,
+  `nama_usaha` varchar(255) DEFAULT NULL,
+  `alamat` varchar(255) DEFAULT NULL,
+  `kecamatan` varchar(255) DEFAULT NULL,
+  `kabupaten` varchar(255) DEFAULT NULL,
+  `provinsi` varchar(255) DEFAULT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` varchar(10) NOT NULL DEFAULT 'Petani'
+  `role` varchar(11) NOT NULL DEFAULT 'Petani'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `nama`, `nomor_telepon`, `alamat`, `kecamatan`, `kabupaten`, `provinsi`, `username`, `password`, `role`) VALUES
-(1, 'Joe Ferdinan', 0, '', '', '', '', 'joe', '12345678', 'Petani'),
-(2, 'Admin', 0, '', '', '', '', 'admin', '1', 'Admin'),
-(3, 'Siapa ya', 8123456789, 'Lupa pokok di bumi', 'Pakusari', 'Jember', 'Jawa Timur', 'siapa', 'siapa', 'Petani');
+INSERT INTO `users` (`id`, `nama`, `nomor_telepon`, `nama_usaha`, `alamat`, `kecamatan`, `kabupaten`, `provinsi`, `username`, `password`, `role`) VALUES
+(1, 'Joe Ferdinan', 0, NULL, '', '', '', '', 'joe', '12345678', 'Petani'),
+(2, 'Admin1', NULL, NULL, NULL, NULL, NULL, NULL, 'admin', '1', 'Admin'),
+(3, 'Siapa ya', 8123456789, 'coba', 'Lupa pokok di bumi', 'Pakusari', 'Jember', 'Jawa Timur', 'siapa', 'siapa', 'Petani'),
+(4, 'Fasilitator Jawa Timur', 8123456789, NULL, 'Pokok Jawa Timur', 'Kaliwates', 'Surabaya', 'Jawa Timur', 'fasilitator1', '1', 'Fasilitator'),
+(5, 'Fasilitator Jawa Tengah', 812345678910, NULL, 'Jawa Tengah', 'Pakusari', 'Solo', 'Jawa Tengah', 'fasilitator2', '2', 'Fasilitator'),
+(6, 'Fasilitator Jawa Barat', 812345678910, NULL, 'Jawa Barat', 'Sumbersari', 'Bogor', 'Jawa Barat', 'fasilitator3', '3', 'Fasilitator');
 
 --
 -- Indexes for dumped tables
@@ -124,7 +128,7 @@ ALTER TABLE `pelatihan`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
