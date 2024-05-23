@@ -133,12 +133,12 @@
                 <input type="password" class="form-control" name="konfirmasi_password" id="konfirmasi_password" placeholder="Masukkan Ulang Password" required>
                 <span id="konfirmasiPasswordError" class="text-danger"></span>
             </div>
-            <div class="col-12 mb-3 d-flex justify-content-end">
+            <div class="col-12 mb-3 d-flex justify-content-center">
                 <button class="btn tombol-simpan mt-4" type="submit">Simpan</button>
             </div>
         </form>
     </div>
-    <div class="d-flex" style="height:150px"></div>
+    <div class="d-flex" style="height:50px"></div>
     <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 100px;">
         <div class="row">
             <div class="col-3 mb-3">

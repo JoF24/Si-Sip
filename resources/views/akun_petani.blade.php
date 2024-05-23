@@ -168,7 +168,7 @@
                 <div class="d-flex justify-content-center tulisan">
                     <div class="d-flex justify-content-center row g-3 mt-5" style="width:900px">
                         <div class="col-6">
-                            <p>Nama<span style="display:inline-block; width: 170px;"></span>: {{ $tampilkan->nama }}</p>
+                            <p>Nama<span style="display:inline-block; width: 148px;"></span>: {{ $tampilkan->nama }}</p>
                         </div>
                         <div class="col-6">
                             <p>Kabupaten<span style="display:inline-block; width: 100px;"></span>: {{ $tampilkan->kabupaten }}</p>
@@ -177,20 +177,20 @@
                             <p>Nomor Telepon<span style="display:inline-block; width: 80px;"></span>: {{ $tampilkan->nomor_telepon }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Provinsi<span style="display:inline-block; width: 130px;"></span>: {{ $tampilkan->provinsi }}</p>
+                            <p>Provinsi<span style="display:inline-block; width: 121px;"></span>: {{ $tampilkan->provinsi }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Nama Usaha<span style="display:inline-block; width: 105px;"></span>: {{ $tampilkan->nama_usaha }}</p>
+                            <p>Nama Usaha<span style="display:inline-block; width: 100px;"></span>: {{ $tampilkan->nama_usaha }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Username<span style="display:inline-block; width: 110px;"></span>: {{ $tampilkan->username }}</p>
+                            <p>Username<span style="display:inline-block; width: 105px;"></span>: {{ $tampilkan->username }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Alamat<span style="display:inline-block; width: 160px;"></span>: {{ $tampilkan->alamat }}</p>
+                            <p>Alamat<span style="display:inline-block; width: 140px;"></span>: {{ $tampilkan->alamat }}</p>
                         </div>
                         <div class="col-6">
                             <div class="d-flex flex-direction-row">
-                                <p>Password<span style="display:inline-block; width: 115px;"></span>:</p>
+                                <p>Password<span style="display:inline-block; width: 108px;"></span>:</p>
                                 <div class="input-group transparent-form" style="width: 200px">
                                     <input type="text" id="showPassword" style="width:150px" class="form-control" value="{{ $tampilkan->password }}" readonly>
                                     <div class="input-group-append">
@@ -202,7 +202,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <p>Kecamatan<span style="display:inline-block; width: 120px;"></span>: {{ $tampilkan->kecamatan }}</p>
+                            <p>Kecamatan<span style="display:inline-block; width: 110px;"></span>: {{ $tampilkan->kecamatan }}</p>
                         </div>
                         <div class="col-12 mt-5">
                             <div class="d-flex justify-content-start">
