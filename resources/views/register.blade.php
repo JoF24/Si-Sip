@@ -178,108 +178,83 @@
         </div>
     </div> --}}
     <div class="d-flex" style="height:150px"></div>
-    <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 250px;">
+    <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 100px;">
         <div class="row">
-            <div class="col-4 mb-3">
-                <div class="card warna-footer" style="width:350px;border-top:none;border-bottom:none;border-left:none;border-right:none;">
+            <div class="col-3 mb-3">
+                <div class="card warna-footer" style="width:px;border-top:none;border-bottom:none;border-left:none;border-right:none;">
                     <div class="d-flex justify-content-center align-items-center">
-                        <img src="gambar/Frame 28.png" alt="logo" width="240px">
+                        <img src="gambar/Frame 28.png" alt="logo" width="250px" height="80px">
                     </div>
                 </div>
             </div>
-            <div class="col-4 mb-3">
-                <div class="card warna-footer" style="width:350px;border-top:none;border-bottom:none;border-left:none;border-right:none;">
+            <div class="col-9 mb-3">
+                <div class="card warna-footer" style="width:600px;border-top:none;border-bottom:none;border-left:none;border-right:none;">
                     <div class="card-body">
-                        <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center" style="height:50px">
                             <p class="card-title">
-                                email : SI-SIP@gmail.com<br>
-                                Phone : +6285 2366 69823
+                                © 2024 Sistem Informasi Sertifikasi & Pelatihan
                             </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4 mb-3">
-                <div class="card warna-footer" style="border-top:none;border-bottom:none;border-left:none;border-right:none;">
-                    <div class="card-body">
-                        <p class="card-title">Social Media</p>
-                        <div class="row">
-                            <div class="col-2 mb-3">
-                                <img src="gambar/Facebook.png" alt="" width="50px" height="50px">
-                            </div>
-                            <div class="col-2 mb-3">
-                                <img src="gambar/Twitter.png" alt="" width="50px" height="50px">
-                            </div>
-                            <div class="col-2 mb-3">
-                                <img src="gambar/Instagram.png" alt="" width="50px" height="50px">
-                            </div>
-                            <div class="col-2 mb-3">
-                                <img src="gambar/Linkedin.png" alt="" width="50px" height="50px">
-                            </div>
-                            <div class="col-2 mb-3">
-                                <img src="gambar/Youtube.png" alt="" width="60px" height="60px">
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script> 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-<script>
-    function validateForm() {
-        var password = document.getElementById('password').value;
-        var konfirmasiPassword = document.getElementById('konfirmasi_password').value;
-        var konfirmasiPasswordError = document.getElementById('konfirmasiPasswordError');
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function validateForm() {
+            var password = document.getElementById('password').value;
+            var konfirmasiPassword = document.getElementById('konfirmasi_password').value;
+            var konfirmasiPasswordError = document.getElementById('konfirmasiPasswordError');
 
-        // Reset error messages
-        konfirmasiPasswordError.textContent = '';
+            // Reset error messages
+            konfirmasiPasswordError.textContent = '';
 
-        if (password !== konfirmasiPassword) {
-            konfirmasiPasswordError.textContent = 'Password dan Konfirmasi Password tidak cocok.';
-            return false;
+            if (password !== konfirmasiPassword) {
+                konfirmasiPasswordError.textContent = 'Password dan Konfirmasi Password tidak cocok.';
+                return false;
+            }
+            return true;
         }
-        return true;
-    }
-</script>
-{{-- <script>
-document.getElementById('showModalButton').addEventListener('click', function() {
-    $('#myModal').modal('hide');
-    $('#modal_berhasil').modal('show');
-    setTimeout(function() {
-        $('#modal_berhasil').modal('hide');
-        $('#formulir').submit();
-    }, 4000);
-});
+    </script>
+    {{-- <script>
+    document.getElementById('showModalButton').addEventListener('click', function() {
+        $('#myModal').modal('hide');
+        $('#modal_berhasil').modal('show');
+        setTimeout(function() {
+            $('#modal_berhasil').modal('hide');
+            $('#formulir').submit();
+        }, 4000);
+    });
 
-document.getElementById("formulir").addEventListener("submit", function(event) {
-    // Mencegah aksi default dari pengiriman form
-    event.preventDefault();
-    
-    // Menampilkan pop-up konfirmasi
-    $('#myModal').modal('show');
-});
+    document.getElementById("formulir").addEventListener("submit", function(event) {
+        // Mencegah aksi default dari pengiriman form
+        event.preventDefault();
+        
+        // Menampilkan pop-up konfirmasi
+        $('#myModal').modal('show');
+    });
 
-document.getElementById("yaButton").addEventListener("click", function(event) {
-    // Menyembunyikan pop-up konfirmasi
-    $('#myModal').modal('hide');
-    $('#modal_berhasil').modal('show');
-    setTimeout(function() {
-        $('#modal_berhasil').modal('hide');
-        $('#formulir').submit();
-    }, 4000);
-    // Mengirimkan form secara manual
-    document.getElementById("formulir").submit();
-});
+    document.getElementById("yaButton").addEventListener("click", function(event) {
+        // Menyembunyikan pop-up konfirmasi
+        $('#myModal').modal('hide');
+        $('#modal_berhasil').modal('show');
+        setTimeout(function() {
+            $('#modal_berhasil').modal('hide');
+            $('#formulir').submit();
+        }, 4000);
+        // Mengirimkan form secara manual
+        document.getElementById("formulir").submit();
+    });
 
-document.getElementById("batalButton").addEventListener("click", function(event) {
-    // Menyembunyikan pop-up konfirmasi
-    $('#myModal').modal('hide');
-});
-</script> --}}
+    document.getElementById("batalButton").addEventListener("click", function(event) {
+        // Menyembunyikan pop-up konfirmasi
+        $('#myModal').modal('hide');
+    });
+    </script> --}}
 
 </body>
 </html>
