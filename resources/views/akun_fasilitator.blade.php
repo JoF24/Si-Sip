@@ -24,7 +24,7 @@
         }
         .tulisan{
             font-family: 'Inter', sans-serif;
-            font-size: 20px;
+            font-size: 15px;
             font-weight: 500;
         }
         .transparent-form {
@@ -46,6 +46,9 @@
             background-image: url("gambar/Edit.png");
             background-size: cover;
             border: none;   
+        }
+        .page-item:not(.active) .page-link {
+            color: black; /* Set text color to black for inactive page links */
         }
     </style>
 </head>
@@ -91,7 +94,7 @@
             <h1>Akun</h1>
         </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center" style="height: 700px">
+    <div class="d-flex justify-content-center align-items-center" style="height: 650px">
         <div class="card" style="height: 600px; width:1000px">
             <div class="card-header bg-white">
                 <nav class="navbar navbar-expand-lg bg-white">
@@ -134,36 +137,18 @@
                                 <th class="text-center align-middle">Username</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php 
-                            $nomor = 1
-                            ?>
-                            @foreach ($tampilkan as $tampil)
-                            <tr style="height: 70px">
-                                    <td class="text-center align-middle">{{ $nomor }}</td>
-                                    <td class="text-center align-middle">{{ $tampil->nama }}</td>
-                                    <td class="text-center align-middle">{{ $tampil->nomor_telepon }}</td>
-                                    <td class="text-center align-middle"></td>
-                                    <td class="text-center align-middle">{{ $tampil->alamat }}</td>
-                                    <td class="text-center align-middle">{{ $tampil->kecamatan }}</td>
-                                    <td class="text-center align-middle">{{ $tampil->kabupaten }}</td>
-                                    <td class="text-center align-middle">{{ $tampil->provinsi }}</td>
-                                    <td class="text-center align-middle">{{ $tampil->username }}</td>
-                                </tr>
-                            <?php 
-                            $nomor ++;
-                            ?>
-                            @endforeach
+                        <tbody id="table-body">
+                            <!-- Data akan dimasukkan di sini oleh JavaScript -->
                         </tbody>
                     </table>
                 @else
                 <div class="d-flex justify-content-center tulisan">
-                    <div class="d-flex justify-content-center row g-3 mt-5" style="width:900px">
+                    <div class="d-flex justify-content-center row g-3 mt-5" style="width:900px;">
                         <div class="col-6">
-                            <p>Nama<span style="display:inline-block; width: 170px;"></span>: {{ $tampilkan->nama }}</p>
+                            <p>Nama<span style="display:inline-block; width: 147px;"></span>: {{ $tampilkan->nama }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Provinsi<span style="display:inline-block; width: 130px;"></span>: {{ $tampilkan->provinsi }}</p>
+                            <p>Provinsi<span style="display:inline-block; width: 125px;"></span>: {{ $tampilkan->provinsi }}</p>
                         </div>
                         <div class="col-6">
                             <p>Nomor Telepon<span style="display:inline-block; width: 80px;"></span>: {{ $tampilkan->nomor_telepon }}</p>
@@ -172,7 +157,7 @@
                             <p>Username<span style="display:inline-block; width: 110px;"></span>: {{ $tampilkan->username }}</p>
                         </div>
                         <div class="col-6">
-                            <p>Alamat<span style="display:inline-block; width: 160px;"></span>: {{ $tampilkan->alamat }}</p>
+                            <p>Alamat<span style="display:inline-block; width: 140px;"></span>: {{ $tampilkan->alamat }}</p>
                         </div>
                         <div class="col-6">
                             <div class="d-flex flex-direction-row">
@@ -188,10 +173,10 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <p>Kecamatan<span style="display:inline-block; width: 120px;"></span>: {{ $tampilkan->kecamatan }}</p>
+                            <p>Kecamatan<span style="display:inline-block; width: 110px;"></span>: {{ $tampilkan->kecamatan }}</p>
                         </div>
                         <div class="col-12">
-                            <p>Kabupaten<span style="display:inline-block; width: 120px;"></span>: {{ $tampilkan->kabupaten }}</p>
+                            <p>Kabupaten<span style="display:inline-block; width: 113px;"></span>: {{ $tampilkan->kabupaten }}</p>
                         </div>
                         <div class="col-12 mt-5">
                             <div class="d-flex justify-content-start">
@@ -204,6 +189,17 @@
             </div>
         </div>
     </div>
+    @if ($data == "fasilitator_petani")
+    <div class="d-flex justify-content-center align-items-center" style="height: 100px">
+        <nav>
+            <ul class="pagination justify-content-center" id="pagination">
+                <!-- Tautan paginasi akan dimasukkan di sini oleh JavaScript -->
+            </ul>
+        </nav>
+    </div>
+    @else
+    <div class="d-flex" style="height: 50px"></div>
+    @endif
     <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 100px;">
         <div class="row">
             <div class="col-3 mb-3">
@@ -243,5 +239,82 @@
             }
         });
     </script>      
+    <!-- Custom JS for pagination -->
+    <script>
+        $(document).ready(function () {
+            const rowsPerPage = 5;
+            let currentPage = 1;
+            let data = @json($tampilkan); // Mengambil data dari controller
+
+            function renderTable(data, page) {
+                $('#table-body').empty();
+                let start = (page - 1) * rowsPerPage;
+                let end = start + rowsPerPage;
+                let paginatedData = data.slice(start, end);
+            
+                paginatedData.forEach((row, index) => {
+                    $('#table-body').append(`
+                        <tr style="height: 85px">
+                            <td class="text-center align-middle">${start + index + 1}</td>
+                            <td class="text-center align-middle">${row.nama}</td>
+                            <td class="text-center align-middle">${row.nomor_telepon}</td>
+                            <td class="text-center align-middle">${row.nama_usaha}</td>
+                            <td class="text-center align-middle">${row.alamat}</td>
+                            <td class="text-center align-middle">${row.kecamatan}</td>
+                            <td class="text-center align-middle">${row.kabupaten}</td>
+                            <td class="text-center align-middle">${row.provinsi}</td>
+                            <td class="text-center align-middle">${row.username}</td>
+                        </tr>
+                    `);
+                });
+            }
+
+            function renderPagination(data, page) {
+                $('#pagination').empty();
+                let totalPages = Math.ceil(data.length / rowsPerPage);
+
+                $('#pagination').append(`
+                    <li class="page-item ${page === 1 ? 'disabled' : ''}">
+                        <a class="page-link" href="#" aria-label="Previous" id="prev-page">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                `);
+
+                for (let i = 1; i <= totalPages; i++) {
+                    $('#pagination').append(`
+                        <li class="page-item ${i === page ? 'active' : ''}">
+                            <a class="page-link" href="#">${i}</a>
+                        </li>
+                    `);
+                }
+
+                $('#pagination').append(`
+                    <li class="page-item ${page === totalPages ? 'disabled' : ''}">
+                        <a class="page-link" href="#" aria-label="Next" id="next-page">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                `);
+
+                $('.page-link').on('click', function (e) {
+                    e.preventDefault();
+                    let newPage = $(this).text();
+                    if ($(this).attr('aria-label') === 'Previous') {
+                        currentPage = currentPage > 1 ? currentPage - 1 : 1;
+                    } else if ($(this).attr('aria-label') === 'Next') {
+                        currentPage = currentPage < totalPages ? currentPage + 1 : totalPages;
+                    } else {
+                        currentPage = parseInt(newPage);
+                    }
+                    renderTable(data, currentPage);
+                    renderPagination(data, currentPage);
+                });
+            }
+
+            renderTable(data, currentPage);
+            renderPagination(data, currentPage);
+        });
+    </script>
 </body>
 </html>
