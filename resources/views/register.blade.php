@@ -93,8 +93,8 @@
                 <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Masukkan Alamat" required>
             </div>
             <div class="col-6 mb-3">
-                <label for="username" style="font-weight: bold;" class="mb-3">Username</label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Masukkan Username" required>
+                <label for="nama_usaha" style="font-weight: bold;" class="mb-3">Nama Usaha</label>
+                <input type="text" name="nama_usaha" id="nama_usaha" class="form-control" placeholder="Masukkan Nama Usaha" required>
             </div>
             <div class="col-6 mb-3">
                 <label for="kecamatan" class="mb-3" style="font-weight: bold;">Kecamatan</label>
@@ -108,8 +108,8 @@
                 </select>
             </div>
             <div class="col-6 mb-3">
-                <label for="password" class="mb-3" style="font-weight: bold;">Password</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Password" required>
+                <label for="username" style="font-weight: bold;" class="mb-3">Username</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Masukkan Username" required>
             </div>
             <div class="col-6 mb-3">
                 <label for="kabupaten" class="mb-3" style="font-weight: bold;">Kabupaten</label>
@@ -125,9 +125,8 @@
                 </select>
             </div>
             <div class="col-6 mb-3">
-                <label for="konfirmasi_password" class="mb-3" style="font-weight: bold;">Konfirmasi Password</label>
-                <input type="password" class="form-control" name="konfirmasi_password" id="konfirmasi_password" placeholder="Masukkan Ulang Password" required>
-                <span id="konfirmasiPasswordError" class="text-danger"></span>
+                <label for="password" class="mb-3" style="font-weight: bold;">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Password" required>
             </div>
             <div class="col-6 mb-3">
                 <label for="provinsi" class="mb-3" style="font-weight: bold;">Provinsi</label>
@@ -139,7 +138,14 @@
                 </select>
             </div>
             <div class="col-6 mb-3">
-                <button class="btn tombol-registrasi mt-4" type="submit">Registrasi</button>
+                <label for="konfirmasi_password" class="mb-3" style="font-weight: bold;">Konfirmasi Password</label>
+                <input type="password" class="form-control" name="konfirmasi_password" id="konfirmasi_password" placeholder="Masukkan Ulang Password" required>
+                <span id="konfirmasiPasswordError" class="text-danger"></span>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="d-flex justify-content-center">
+                    <button class="btn tombol-registrasi mt-4" type="submit">Registrasi</button>
+                </div>
             </div>
         </form>
     </div>
@@ -177,7 +183,7 @@
         </div>
         </div>
     </div> --}}
-    <div class="d-flex" style="height:150px"></div>
+    <div class="d-flex" style="height:50px"></div>
     <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 100px;">
         <div class="row">
             <div class="col-3 mb-3">
