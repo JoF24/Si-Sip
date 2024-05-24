@@ -13,6 +13,7 @@ class sertifikasi extends Model
     protected $primaryKey = 'id_sertifikasi';
     protected $fillable = [
         'nama_produk',
+        'nama_petani',
         'id_fasilitator',
         'izin_usaha',
         'foto_produk',

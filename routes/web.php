@@ -11,6 +11,7 @@ use App\Http\Controllers\edit_videoController;
 use App\Http\Controllers\halaman_utamaController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\melihat_pelatihan_adminController;
+use App\Http\Controllers\menambah_pengajuan_sertifikasi_petaniController;
 use App\Http\Controllers\menambah_videoController;
 use App\Http\Controllers\mengubah_informasi_pelatihanController;
 use App\Http\Controllers\pelatihan_adminController;
@@ -22,7 +23,6 @@ use App\Http\Controllers\pelatihan_pengolahan_kopiController;
 use App\Http\Controllers\pelatihan_petaniController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\sertifikasi_petaniController;
-use App\Http\Controllers\tambah_pengajuan_sertifikasi_petaniController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,5 +79,6 @@ Route::get('akun_admin', [akun_adminController::class, 'index'])->name('akun_adm
 Route::get('edit_akun_admin', [edit_akun_adminController::class, 'index'])->name('edit_akun_admin');
 Route::post('simpan_akun_admin', [edit_akun_adminController::class, 'simpan_akun_admin'])->name('simpan_akun_admin');
 #Fitur Sertifikasi Petani
-Route::get('sertifikasi', [sertifikasi_petaniController::class, 'index'])->name('sertifikasi');
-Route::get('tambah_pengajuan', [tambah_pengajuan_sertifikasi_petaniController::class, 'index'])->name('tambah_pengajuan');
+Route::get('sertifikasi_petani', [sertifikasi_petaniController::class, 'index'])->name('sertifikasi');
+Route::get('tambah_pengajuan', [menambah_pengajuan_sertifikasi_petaniController::class, 'index'])->name('tambah_pengajuan');
+Route::post('kirim_pengajuan', [menambah_pengajuan_sertifikasi_petaniController::class, 'kirim_pengajuan'])->name('kirim_pengajuan');

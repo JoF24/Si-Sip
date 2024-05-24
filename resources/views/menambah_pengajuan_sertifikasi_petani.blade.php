@@ -52,7 +52,7 @@
                         <a class="nav-link navbar-font" aria-current="page" href="pelatihan_petani">Pelatihan</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="sertifikasi_petani">Sertifikasi</a>
+                        <a class="nav-link active navbar-font" href="sertifikasi_petani">Sertifikasi</a>
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link navbar-font" href="#">Promosi</a>
@@ -78,37 +78,55 @@
     </nav>
     <div class="d-flex justify-content-center align-items-end judul-font mb-5" style="height: 100px">
         <div class="d-flex justify-content-start" style="width: 1000px">
-            <a href="sertifikasi" class="btn kembali" role="button"></a>
+            <a href="sertifikasi_petani" class="btn kembali" role="button"></a>
             <h1 style="margin-left: 20px">Tambah Pengajuan Sertifikasi</h1>
         </div>
     </div>
     <div class="d-flex justify-content-center mb-5">
         <div class="d-flex justify-content-center" style="width: 900px">
-            <form action="#" class="row w-100" enctype="multipart/form-data">
+            <form action="kirim_pengajuan" class="row w-100" enctype="multipart/form-data" method="POST">
                 @csrf
                 <div class="col-12 mb-4">
                     <label for="nama_petani" style="font-weight: bold;" class="mb-3">Nama Petani</label>
-                    <input type="text" id="nama_petani" name="nama_petani" class="form-control" placeholder="Masukkan Nama" required>
+                    <input type="text" id="nama_petani" name="nama_petani" class="form-control" value="{{$user->nama}}" readonly>
                 </div>
                 <div class="col-12 mb-4">
                     <label for="nomor_telepon" style="font-weight: bold;" class="mb-3">Nomor Telepon</label>
-                    <input type="text" id="nomor_telepon" name="nomor_telepon" class="form-control" placeholder="Masukkan Nama" required>
+                    <input type="text" id="nomor_telepon" name="nomor_telepon" class="form-control" value="{{$user->nomor_telepon}}" readonly>
                 </div>
                 <div class="col-12 mb-4">
                     <label for="alamat" style="font-weight: bold;" class="mb-3">Alamat</label>
-                    <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Masukkan Nama" required>
+                    <input type="text" id="alamat" name="alamat" class="form-control" value="{{$user->alamat}}" readonly>
                 </div>
                 <div class="col-12 mb-3">
-                    <label for="kecamatan" style="font-weight: bold;" class="mb-3">Kecamatan</label>
-                    <input type="text" id="kecamatan" name="kecamatan" class="form-control" placeholder="Masukkan Nama" required>
+                    <label for="kecamatan" class="mb-3" style="font-weight: bold;">Kecamatan</label>
+                    <select name="kecamatan" id="kecamatan" class="form-select" required readonly>
+                        <option value="Pakusari" {{$user->kecamatan == 'Pakusari' ? 'selected' : ''}}>Pakusari</option>
+                        <option value="Kaliwates" {{$user->kecamatan == 'Kaliwates' ? 'selected' : ''}}>Kaliwates</option>
+                        <option value="Patrang" {{$user->kecamatan == 'Patrang' ? 'selected' : ''}}>Patrang</option>
+                        <option value="Sumbersari" {{$user->kecamatan == 'Sumbersari' ? 'selected' : ''}}>Sumbersari</option>
+                        <option value="Kebonsari" {{$user->kecamatan == 'Kebonsari' ? 'selected' : ''}}>Kebonsari</option>
+                    </select>
                 </div>
                 <div class="col-12 mb-3">
                     <label for="kabupaten" style="font-weight: bold;" class="mb-3">Kabupaten</label>
-                    <input type="text" id="kabupaten" name="kabupaten" class="form-control" placeholder="Masukkan Nama" required>
+                    <select name="kabupaten" id="kabupaten" class="form-select" readonly>
+                        <option value="Jember" {{$user->kabupaten == 'Jember' ? 'selected' : ''}}>Jember</option>
+                        <option value="Banyuwangi" {{$user->kabupaten == 'Banyuwangi' ? 'selected' : ''}}>Banyuwangi</option>
+                        <option value="Bondowoso" {{$user->kabupaten == 'Bondowoso' ? 'selected' : ''}}>Bondowoso</option>
+                        <option value="Sidoarjo" {{$user->kabupaten == 'Sidoarjo' ? 'selected' : ''}}>Sidoarjo</option>
+                        <option value="Lumajang" {{$user->kabupaten == 'Lumajang' ? 'selected' : ''}}>Lumajang</option>
+                        <option value="Malang" {{$user->kabupaten == 'Malang' ? 'selected' : ''}}>Malang</option>
+                        <option value="Surabaya" {{$user->kabupaten == 'Surabaya' ? 'selected' : ''}}>Surabaya</option>
+                    </select>
                 </div>
                 <div class="col-12 mb-3">
                     <label for="provinsi" style="font-weight: bold;" class="mb-3">Provinsi</label>
-                    <input type="text" id="provinsi" name="provinsi" class="form-control" placeholder="Masukkan Nama" required>
+                    <select name="provinsi" id="provinsi" class="form-select" readonly>
+                        <option value="Jawa Timur" {{$user->provinsi == 'Jawa Timur' ? 'selected' : ''}}>Jawa Timur</option>
+                        <option value="Jawa Barat" {{$user->provinsi == 'Jawa Barat' ? 'selected' : ''}}>Jawa Barat</option>
+                        <option value="Jawa Tengah" {{$user->provinsi == 'Jawa Tengah' ? 'selected' : ''}}>Jawa Tengah</option>
+                    </select>
                 </div>
                 <div class="col-12 mb-3">
                     <label for="nama_produk" style="font-weight: bold;" class="mb-3">Nama Produk</label>
@@ -136,7 +154,7 @@
                 </div>
                 <div class="col-12 mb-4">
                     <label for="nama_fasilitator" style="font-weight: bold;" class="mb-3">Nama Fasilitator</label>
-                    <input type="text" id="nama_fasilitator" name="nama_fasilitator" class="form-control" placeholder="Masukkan Nama" required>
+                    <input type="text" id="nama_fasilitator" name="nama_fasilitator" class="form-control" value="{{$fasilitator->nama}}" readonly>
                 </div>
                 <div class="col-12 mb-3 d-flex justify-content-center">
                     <button class="btn tombol-simpan mt-4" type="submit">Simpan</button>

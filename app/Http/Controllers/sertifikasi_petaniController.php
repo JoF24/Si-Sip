@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\sertifikasi;
 use Illuminate\Http\Request;
 
 class sertifikasi_petaniController extends Controller
@@ -14,7 +15,8 @@ class sertifikasi_petaniController extends Controller
         if ($request->session()->has('user')) {
             // Jika ada data pengguna dalam session, ambil informasi pengguna
             $user = $request->session()->get('user');
-            return view('sertifikasi_petani', compact('user'));
+            $tampilkan = sertifikasi::where('nama_petani', $user->nama)->get();
+            return view('sertifikasi_petani', compact('user', 'tampilkan'));
         } else {
             // Jika tidak ada data pengguna dalam session, redirect ke halaman login
             return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu.');

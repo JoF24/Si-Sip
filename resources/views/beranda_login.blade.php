@@ -65,7 +65,13 @@
                         @endif
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="sertifikasi">Sertifikasi</a>
+                        @if ($user->role == 'Petani')
+                            <a class="nav-link navbar-font" href="sertifikasi_petani">Sertifikasi</a>
+                        @elseif($user->role == 'Fasilitator')
+                        <a class="nav-link navbar-font" href="sertifikasi_fasilitator">Sertifikasi</a>
+                        @elseif ($user->role == 'Admin')
+                        <a class="nav-link navbar-font" href="sertifikasi_admin">Sertifikasi</a>
+                        @endif
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link navbar-font" href="promosi">Promosi</a>

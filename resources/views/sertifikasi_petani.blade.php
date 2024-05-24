@@ -28,6 +28,20 @@
             width: 132px;
             height: 47px;
         }
+        .progres{
+            background-image: url('gambar/progres.png');
+            background-size: cover;
+            border: none;
+            width: 84px;
+            height: 30px;
+        }
+        .lihat_detail{
+            background-image: url('gambar/lihat_detail.png');
+            background-size: cover;
+            border: none;
+            width: 100px;
+            height: 30px;
+        }        
     </style>
 </head>
 <body>
@@ -43,7 +57,7 @@
                         <a class="nav-link navbar-font" aria-current="page" href="pelatihan_petani">Pelatihan</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="sertifikasi_petani">Sertifikasi</a>
+                        <a class="nav-link active navbar-font" href="sertifikasi_petani">Sertifikasi</a>
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link navbar-font" href="#">Promosi</a>
@@ -136,7 +150,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom JS for pagination -->
-    {{-- <script>
+    <script>
         $(document).ready(function () {
             const rowsPerPage = 5;
             let currentPage = 1;
@@ -149,16 +163,25 @@
                 let paginatedData = data.slice(start, end);
 
                 paginatedData.forEach((row, index) => {
+                    let statusImage = '';
+                    if (row.id_status === 'Ditinjau') {
+                        statusImage = '<img src="gambar/ditinjau.png" style="width: 90px; height: 35px;">';
+                    } else if (row.id_status === 'Diterima') {
+                        statusImage = '<img src="gambar/diterima.png" style="width: 90px; height: 35px;">';
+                    } else if (row.id_status === 'Ditolak') {
+                        statusImage = '<img src="gambar/ditolak.png" style="width: 90px; height: 35px;">';
+                    }
+                    
                     $('#table-body').append(`
                         <tr style="height: 85px">
                             <td class="text-center align-middle">${start + index + 1}</td>
-                            <td class="text-center align-middle">${row.nama}</td>
-                            <td class="text-center align-middle">${row.nomor_telepon}</td>
-                            <td class="text-center align-middle">${row.alamat}</td>
-                            <td class="text-center align-middle">${row.kecamatan}</td>
-                            <td class="text-center align-middle">${row.kabupaten}</td>
-                            <td class="text-center align-middle">${row.provinsi}</td>
-                            <td class="text-center align-middle">${row.username}</td>
+                            <td class="text-center align-middle">${row.nama_petani}</td>
+                            <td class="text-center align-middle">${row.id_fasilitator}</td>
+                            <td class="text-center align-middle">${statusImage}</td>
+                            <td class="text-center align-middle">
+                                <a href="#" class="btn progres" role="button" style="margin-right:5px"></a>
+                                <a href="#" class="btn lihat_detail" role="button"></a>
+                            </td>
                         </tr>
                     `);
                 });
@@ -210,6 +233,6 @@
             renderTable(data, currentPage);
             renderPagination(data, currentPage);
         });
-    </script>      --}}
+    </script>     
 </body>
 </html>
