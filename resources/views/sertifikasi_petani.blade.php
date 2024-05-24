@@ -171,7 +171,7 @@
                     } else if (row.id_status === 'Ditolak') {
                         statusImage = '<img src="gambar/ditolak.png" style="width: 90px; height: 35px;">';
                     }
-                    
+                    let detailUrl = `{{ url('detail_pengajuan_sertifikasi_petani_kopi') }}?id=${row.id_sertifikasi}`;
                     $('#table-body').append(`
                         <tr style="height: 85px">
                             <td class="text-center align-middle">${start + index + 1}</td>
@@ -180,7 +180,7 @@
                             <td class="text-center align-middle">${statusImage}</td>
                             <td class="text-center align-middle">
                                 <a href="#" class="btn progres" role="button" style="margin-right:5px"></a>
-                                <a href="#" class="btn lihat_detail" role="button"></a>
+                                <a href="${detailUrl}" class="btn lihat_detail" role="button"></a>
                             </td>
                         </tr>
                     `);

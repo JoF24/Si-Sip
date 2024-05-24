@@ -4,6 +4,7 @@ use App\Http\Controllers\akun_adminController;
 use App\Http\Controllers\akun_fasilitatorController;
 use App\Http\Controllers\akun_petaniController;
 use App\Http\Controllers\beranda_loginController;
+use App\Http\Controllers\detail_pegajuan_sertifikasi_petani_kopiController;
 use App\Http\Controllers\edit_akun_adminController;
 use App\Http\Controllers\edit_akun_fasilitatorController;
 use App\Http\Controllers\edit_akun_petaniController;
@@ -82,3 +83,4 @@ Route::post('simpan_akun_admin', [edit_akun_adminController::class, 'simpan_akun
 Route::get('sertifikasi_petani', [sertifikasi_petaniController::class, 'index'])->name('sertifikasi');
 Route::get('tambah_pengajuan', [menambah_pengajuan_sertifikasi_petaniController::class, 'index'])->name('tambah_pengajuan');
 Route::post('kirim_pengajuan', [menambah_pengajuan_sertifikasi_petaniController::class, 'kirim_pengajuan'])->name('kirim_pengajuan');
+Route::get('detail_pengajuan_sertifikasi_petani_kopi', [detail_pegajuan_sertifikasi_petani_kopiController::class, 'index'])->name('detail_pengajuan_sertifikasi_petani_kopi');
