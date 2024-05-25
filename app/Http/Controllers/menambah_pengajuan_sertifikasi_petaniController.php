@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\progres;
 use App\Models\sertifikasi;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -102,6 +103,11 @@ class menambah_pengajuan_sertifikasi_petaniController extends Controller
             'bahan_digunakan' => $request->bahan_digunakan,
             'alat_digunakan' => $request->alat_digunakan,
             'id_status' => $status
+        ]);
+        $tanggal_saat_ini = date("d/m/Y");
+        progres::create([
+            'kemajuan' => 1,
+            'tanggal_submit' => $tanggal_saat_ini,
         ]);
         Session::flash('message', 'Data Berhasil Ditambahkan');
         return redirect('sertifikasi_petani');

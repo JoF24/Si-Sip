@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="icon" href="gambar/Logo SI-SIP.png" type="image/x-icon">
-    <title>Sertifikasi</title>
+    <title>Progres Sertifikasi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <style>
@@ -75,7 +75,7 @@
     <div class="d-flex justify-content-center align-items-end judul-font mb-5" style="height: 100px">
         <div class="d-flex justify-content-start" style="width: 1000px">
             <a href="sertifikasi_petani" class="btn kembali" role="button"></a>
-            <h1 style="margin-left: 20px">Lihat Detail Pengajuan Sertifikasi</h1>
+            <h1 style="margin-left: 20px">Progres Pengajuan Sertifikasi</h1>
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center mb-5">
@@ -83,36 +83,31 @@
             <div class="d-flex justify-content-center align-items-center">
                 <div class="d-flex tulisan" style="width:850px">
                     <div class="row w-100">
-                        <div class="col-12 mb-3 mt-5">
-                            <p>Nama Petani<span style="display:inline-block; width: 154px;"></span>: {{ $tampilkan->nama_petani }}</p>
+                        @foreach ($kemajuan as $kemajuans)
+                        <?php 
+                        $kemajuans = (int)$kemajuans;
+                        ?>
+                        @if ($kemajuans === 1)
+                        <div class="col-12 mt-5" style="display: flex; align-items: center;">
+                            <img src="gambar/progres 1.png" style="width: 40px; height: 40px;">
+                            <p style="margin-right: auto;margin-left:20px;margin-top:15px">{{$keterangan_kemajuan[0]->kemajuan}}</p>
+                            <p style="margin-left: auto;">{{$progres->$kemajuans}}</p>
+                        </div> 
+                        @else
+                        <div class="col-12" style="display: flex; align-items: center;margin-left:15px">
+                            <img src="gambar/garis.png" style="width: 7px; height: 50px;">
                         </div>
-                        <div class="col-12 mb-3">
-                            <p>Nomor Telepon<span style="display:inline-block; width: 133px;"></span>: {{ $user->nomor_telepon }}</p>
+                        <div class="col-12" style="display: flex; align-items: center;">
+                            <img src="gambar/progres 1.png" style="width: 40px; height: 40px;">
+                            @foreach ($keterangan_kemajuan as $keterangan)
+                            @if($kemajuans === $keterangan->id_kemajuan)
+                            <p style="margin-right: auto;margin-left:20px;margin-top:15px">{{$keterangan->kemajuan}}</p>
+                            <p style="margin-left: auto;">{{$progres->$kemajuans}}</p>
+                            @endif
+                            @endforeach
                         </div>
-                        <div class="col-12 mb-3">
-                            <p>Alamat Petani<span style="display:inline-block; width: 145px;"></span>: {{ $user->alamat }}</p>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <p>Nama Produk<span style="display:inline-block; width: 148px;"></span>: {{ $tampilkan->nama_produk }}</p>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <p>Izin Usaha<span style="display:inline-block; width: 173px;"></span>: <img src="gambar/pdf.png" alt="" style="width: 35px;height:35px"> {{ $tampilkan->izin_usaha }}</p>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <p>Foto Produk<span style="display:inline-block; width: 160px;"></span>: <img src="gambar/image.png" alt="" style="width: 35px;height:35px"> {{ $tampilkan->foto_produk }}</p>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <p>Video Produk<span style="display:inline-block; width: 148px;"></span>: <img src="gambar/audio.png" alt="" style="width: 35px;height:35px"> {{ $tampilkan->video_proses_produk }}</p>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <p>Bahan Digunakan<span style="display:inline-block; width: 117px;"></span>: {{ $tampilkan->bahan_digunakan }}</p>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <p>Alat Digunakan<span style="display:inline-block; width: 136px;"></span>: {{ $tampilkan->alat_digunakan }}</p>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <p>Nama Fasilitator<span style="display:inline-block; width: 127px;"></span>: {{ $tampilkan->id_fasilitator }}</p>
-                        </div>
+                        @endif
+                    @endforeach
                     </div>
                 </div>
             </div>

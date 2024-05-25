@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-12 mb-3">
                     <label for="kecamatan" class="mb-3" style="font-weight: bold;">Kecamatan</label>
-                    <select name="kecamatan" id="kecamatan" class="form-select" required readonly>
+                    <select name="kecamatan" id="kecamatan" class="form-select" required disabled readonly>
                         <option value="Pakusari" {{$user->kecamatan == 'Pakusari' ? 'selected' : ''}}>Pakusari</option>
                         <option value="Kaliwates" {{$user->kecamatan == 'Kaliwates' ? 'selected' : ''}}>Kaliwates</option>
                         <option value="Patrang" {{$user->kecamatan == 'Patrang' ? 'selected' : ''}}>Patrang</option>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="col-12 mb-3">
                     <label for="kabupaten" style="font-weight: bold;" class="mb-3">Kabupaten</label>
-                    <select name="kabupaten" id="kabupaten" class="form-select" readonly>
+                    <select name="kabupaten" id="kabupaten" class="form-select" disabled readonly>
                         <option value="Jember" {{$user->kabupaten == 'Jember' ? 'selected' : ''}}>Jember</option>
                         <option value="Banyuwangi" {{$user->kabupaten == 'Banyuwangi' ? 'selected' : ''}}>Banyuwangi</option>
                         <option value="Bondowoso" {{$user->kabupaten == 'Bondowoso' ? 'selected' : ''}}>Bondowoso</option>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="col-12 mb-3">
                     <label for="provinsi" style="font-weight: bold;" class="mb-3">Provinsi</label>
-                    <select name="provinsi" id="provinsi" class="form-select" readonly>
+                    <select name="provinsi" id="provinsi" class="form-select" disabled readonly>
                         <option value="Jawa Timur" {{$user->provinsi == 'Jawa Timur' ? 'selected' : ''}}>Jawa Timur</option>
                         <option value="Jawa Barat" {{$user->provinsi == 'Jawa Barat' ? 'selected' : ''}}>Jawa Barat</option>
                         <option value="Jawa Tengah" {{$user->provinsi == 'Jawa Tengah' ? 'selected' : ''}}>Jawa Tengah</option>

@@ -23,4 +23,18 @@ class sertifikasi extends Model
         'id_status',
         'id_progres'
     ];
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($progress) {
+            $progress->updateIdProgres();
+        });
+    }
+
+    public function updateIdProgres()
+    {
+        $this->id_progres = $this->id_sertifikasi;
+        $this->save();
+    }
 }

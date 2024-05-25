@@ -22,6 +22,7 @@ use App\Http\Controllers\pelatihan_kewirausahaanController;
 use App\Http\Controllers\pelatihan_pemasaran_kopiController;
 use App\Http\Controllers\pelatihan_pengolahan_kopiController;
 use App\Http\Controllers\pelatihan_petaniController;
+use App\Http\Controllers\progres_pengajuan_sertifikasi_petani_kopiController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\sertifikasi_petaniController;
 use Illuminate\Support\Facades\Route;
@@ -84,3 +85,4 @@ Route::get('sertifikasi_petani', [sertifikasi_petaniController::class, 'index'])
 Route::get('tambah_pengajuan', [menambah_pengajuan_sertifikasi_petaniController::class, 'index'])->name('tambah_pengajuan');
 Route::post('kirim_pengajuan', [menambah_pengajuan_sertifikasi_petaniController::class, 'kirim_pengajuan'])->name('kirim_pengajuan');
 Route::get('detail_pengajuan_sertifikasi_petani_kopi', [detail_pegajuan_sertifikasi_petani_kopiController::class, 'index'])->name('detail_pengajuan_sertifikasi_petani_kopi');
+Route::get('progres_pengajuan_sertifikasi_petani_kopi', [progres_pengajuan_sertifikasi_petani_kopiController::class, 'index'])->name('progres_pengajuan_sertifikasi_petani_kopi');
