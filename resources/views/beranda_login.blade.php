@@ -74,7 +74,13 @@
                         @endif
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="promosi">Promosi</a>
+                        @if ($user->role == 'Petani')
+                            <a class="nav-link navbar-font" href="promosi_petani_kopi">Promosi</a>
+                        @elseif($user->role == 'Fasilitator')
+                        <a class="nav-link navbar-font" href="promosi_fasilitator">Promosi</a>
+                        @elseif ($user->role == 'Admin')
+                        <a class="nav-link navbar-font" href="promosi_admin">Promosi</a>
+                        @endif
                     </li>
                 </ul>
             </div>
