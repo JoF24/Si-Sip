@@ -6,6 +6,7 @@ use App\Http\Controllers\akun_petaniController;
 use App\Http\Controllers\beranda_loginController;
 use App\Http\Controllers\detail_pegajuan_sertifikasi_petani_kopiController;
 use App\Http\Controllers\detail_pengajuan_sertifikasi_adminController;
+use App\Http\Controllers\detail_pengajuan_sertifikasi_fasilitatorController;
 use App\Http\Controllers\edit_akun_adminController;
 use App\Http\Controllers\edit_akun_fasilitatorController;
 use App\Http\Controllers\edit_akun_petaniController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\halaman_utamaController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\melihat_pelatihan_adminController;
 use App\Http\Controllers\menambah_pengajuan_sertifikasi_petaniController;
+use App\Http\Controllers\menambah_progres_pengajuan_sertifikasi_fasilitatorController;
 use App\Http\Controllers\menambah_videoController;
 use App\Http\Controllers\mengubah_informasi_pelatihanController;
 use App\Http\Controllers\pelatihan_adminController;
@@ -24,9 +26,11 @@ use App\Http\Controllers\pelatihan_pemasaran_kopiController;
 use App\Http\Controllers\pelatihan_pengolahan_kopiController;
 use App\Http\Controllers\pelatihan_petaniController;
 use App\Http\Controllers\progres_pengajuan_sertifikasi_adminController;
+use App\Http\Controllers\progres_pengajuan_sertifikasi_fasilitatorController;
 use App\Http\Controllers\progres_pengajuan_sertifikasi_petani_kopiController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\sertifikasi_adminController;
+use App\Http\Controllers\sertifikasi_fasilitatorController;
 use App\Http\Controllers\sertifikasi_petaniController;
 use Illuminate\Support\Facades\Route;
 
@@ -93,3 +97,10 @@ Route::get('progres_pengajuan_sertifikasi_petani_kopi', [progres_pengajuan_serti
 Route::get('sertifikasi_admin', [sertifikasi_adminController::class, 'index'])->name('sertifikasi_admin');
 Route::get('detail_pengajuan_sertifikasi_admin', [detail_pengajuan_sertifikasi_adminController::class, 'index'])->name('detail_pengajuan_sertifikasi_admin');
 Route::get('progres_pengajuan_sertifikasi_admin', [progres_pengajuan_sertifikasi_adminController::class, 'index'])->name('progres_pengajuan_sertifikasi_admin');
+#Fitur Sertifikasi Fasilitator
+Route::get('sertifikasi_fasilitator', [sertifikasi_fasilitatorController::class, 'index'])->name('sertifikasi_fasilitator');
+Route::get('detail_pengajuan_sertifikasi_fasilitator', [detail_pengajuan_sertifikasi_fasilitatorController::class, 'index'])->name('detail_pengajuan_sertifikasi_fasilitator');
+Route::post('ubah_status_pengajuan_sertifikasi', [detail_pengajuan_sertifikasi_fasilitatorController::class, 'ubah_status_pengajuan_sertifikasi'])->name('ubah_status_pengajuan_sertifikasi');
+Route::get('progres_pengajuan_sertifikasi_fasilitator', [progres_pengajuan_sertifikasi_fasilitatorController::class, 'index'])->name('progres_pengajuan_sertifikasi_fasilitator');
+Route::get('menambah_progres_pengajuan_sertifikasi_fasilitator',[menambah_progres_pengajuan_sertifikasi_fasilitatorController::class, 'index'])->name('menambah_progres_pengajuan_sertifikasi_fasilitator');
+Route::post('tambah_progres_pengajuan_sertifikasi_fasilitator', [menambah_progres_pengajuan_sertifikasi_fasilitatorController::class, 'tambah_progres_pengajuan_sertifikasi_fasilitator'])->name('tambah_progres_pengajuan_sertifikasi_fasilitator');
