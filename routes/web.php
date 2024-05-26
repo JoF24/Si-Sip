@@ -5,6 +5,7 @@ use App\Http\Controllers\akun_fasilitatorController;
 use App\Http\Controllers\akun_petaniController;
 use App\Http\Controllers\beranda_loginController;
 use App\Http\Controllers\detail_pegajuan_sertifikasi_petani_kopiController;
+use App\Http\Controllers\detail_pengajuan_sertifikasi_adminController;
 use App\Http\Controllers\edit_akun_adminController;
 use App\Http\Controllers\edit_akun_fasilitatorController;
 use App\Http\Controllers\edit_akun_petaniController;
@@ -22,8 +23,10 @@ use App\Http\Controllers\pelatihan_kewirausahaanController;
 use App\Http\Controllers\pelatihan_pemasaran_kopiController;
 use App\Http\Controllers\pelatihan_pengolahan_kopiController;
 use App\Http\Controllers\pelatihan_petaniController;
+use App\Http\Controllers\progres_pengajuan_sertifikasi_adminController;
 use App\Http\Controllers\progres_pengajuan_sertifikasi_petani_kopiController;
 use App\Http\Controllers\registerController;
+use App\Http\Controllers\sertifikasi_adminController;
 use App\Http\Controllers\sertifikasi_petaniController;
 use Illuminate\Support\Facades\Route;
 
@@ -86,3 +89,7 @@ Route::get('tambah_pengajuan', [menambah_pengajuan_sertifikasi_petaniController:
 Route::post('kirim_pengajuan', [menambah_pengajuan_sertifikasi_petaniController::class, 'kirim_pengajuan'])->name('kirim_pengajuan');
 Route::get('detail_pengajuan_sertifikasi_petani_kopi', [detail_pegajuan_sertifikasi_petani_kopiController::class, 'index'])->name('detail_pengajuan_sertifikasi_petani_kopi');
 Route::get('progres_pengajuan_sertifikasi_petani_kopi', [progres_pengajuan_sertifikasi_petani_kopiController::class, 'index'])->name('progres_pengajuan_sertifikasi_petani_kopi');
+#Fitur Sertifikasi Admin
+Route::get('sertifikasi_admin', [sertifikasi_adminController::class, 'index'])->name('sertifikasi_admin');
+Route::get('detail_pengajuan_sertifikasi_admin', [detail_pengajuan_sertifikasi_adminController::class, 'index'])->name('detail_pengajuan_sertifikasi_admin');
+Route::get('progres_pengajuan_sertifikasi_admin', [progres_pengajuan_sertifikasi_adminController::class, 'index'])->name('progres_pengajuan_sertifikasi_admin');
