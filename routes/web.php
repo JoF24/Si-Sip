@@ -31,6 +31,7 @@ use App\Http\Controllers\progres_pengajuan_sertifikasi_adminController;
 use App\Http\Controllers\progres_pengajuan_sertifikasi_fasilitatorController;
 use App\Http\Controllers\progres_pengajuan_sertifikasi_petani_kopiController;
 use App\Http\Controllers\promosi_adminController;
+use App\Http\Controllers\promosi_fasilitatorController;
 use App\Http\Controllers\promosi_petani_kopiController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\sertifikasi_adminController;
@@ -114,5 +115,5 @@ Route::get('detail_promosi',[detail_promosiController::class, 'index'])->name('d
 Route::get('promosi_petani_kopi', [promosi_petani_kopiController::class, 'index'])->name('promosi_petani_kopi');
 Route::get('menambah_promosi_petani_kopi', [menambah_promosi_petani_kopiController::class, 'index'])->name('menambah_promosi_petani_kopi');
 Route::post('kirim_pengajuan_promosi', [menambah_promosi_petani_kopiController::class, 'kirim_pengajuan_promosi'])->name('kirim_pengajuan_promosi');
-#Fitur Promosi Admin
-Route::get('promosi_admin',[promosi_adminController::class, 'index'])->name('promsi_admin');
+#Fitur Promosi Fasilitator
+Route::get('promosi_fasilitator',[promosi_fasilitatorController::class, 'index'])->name('promsi_fasilitator');
