@@ -17,6 +17,8 @@ class promosi extends Model
         'nama_produk',
         'foto_produk',
         'deskripsi_produk',
-        'harga'
+        'harga',
+        'status_promosi',
+        'status_validasi'
     ];
 }

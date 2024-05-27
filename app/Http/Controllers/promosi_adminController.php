@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\promosi;
 use Illuminate\Http\Request;
 
-class promosi_fasilitatorController extends Controller
+class promosi_adminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class promosi_fasilitatorController extends Controller
         if ($request->session()->has('user')) {
             // Jika ada data pengguna dalam session, ambil informasi pengguna
             $user = $request->session()->get('user');
-            $promosi = promosi::where('status_promosi', 'Aktif')->get();
-            return view('promosi_fasilitator', compact('user','promosi'));
+            $promosi = promosi::all();
+            return view('promosi_admin', compact('user','promosi'));
         } else {
             // Jika tidak ada data pengguna dalam session, redirect ke halaman login
             return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu.');

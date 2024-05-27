@@ -29,6 +29,20 @@
             font-weight: 600;
             font-size: 17px;
         }
+        .progres{
+            background-image: url('gambar/progres.png');
+            background-size: cover;
+            border: none;
+            width: 84px;
+            height: 30px;
+        }
+        .lihat_detail{
+            background-image: url('gambar/lihat_detail.png');
+            background-size: cover;
+            border: none;
+            width: 100px;
+            height: 30px;
+        }
     </style>
 </head>
 <body>
@@ -41,13 +55,13 @@
                         <a class="nav-link navbar-font" href="beranda_login">Halaman Utama</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" aria-current="page" href="pelatihan_petani">Pelatihan</a>
+                        <a class="nav-link navbar-font" aria-current="page" href="pelatihan_admin">Pelatihan</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="sertifikasi_petani">Sertifikasi</a>
+                        <a class="nav-link navbar-font" href="sertifikasi_admin">Sertifikasi</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link active navbar-font" href="promosi_petani">Promosi</a>
+                        <a class="nav-link active navbar-font" href="promosi_admin">Promosi</a>
                     </li>
                 </ul>
             </div>
@@ -60,7 +74,7 @@
                         <ul class="dropdown-menu">
                             <li><a>Peran: {{ $user->role }}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}">Akun</a></li>
+                            <li><a href="{{ url('akun_admin') . '?data=' . $user->username }}">Akun</a></li>
                             <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
@@ -80,25 +94,37 @@
     @endif
     <div class="d-flex justify-content-center align-items-end judul-font" style="height: 100px">
         <div class="d-flex justify-content-between" style="width: 1000px">
-            <h1>Daftar Produk</h1>
+            <h1>Daftar Pengajuan Promosi</h1>
         </div>
     </div>
-    <div class="d-flex justify-content-center mt-5 mb-5">
-        <div class="d-flex" style="width: 1000px">
-            <div class="row w-100">
-                @foreach($promosi as $promo)
-                <div class="col-3">
-                    <a href="{{ route('detail_promosi', ['id_promosi' => $promo->id_promosi]) }}" style="text-decoration: none">
-                        <div class="card" style="height: 274px; width: 262px">
-                            <img src="{{ asset('storage/promosi/' . $promo->foto_produk) }}" alt="" style="width: 262px;height:180px">
-                            <p class="tulisan mt-3" style="margin-left: 15px;font-weight: 600;font-size: 17px;">{{$promo->nama_produk}}</p>
-                            <p class="tulisan" style="margin-left: 15px;font-size: 15px;">Rp{{$promo->harga}}</p>
-                        </div>
-                    </a>
-                </div>
-                @endforeach
+    <div class="d-flex justify-content-center align-items-center" style="height: 700px">
+        <div class="card" style="height: 600px; width:1000px">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-center align-middle">No</th>
+                            <th class="text-center align-middle">Nama Usaha</th>
+                            <th class="text-center align-middle">Nama Produk</th>
+                            <th class="text-center align-middle">Harga</th>
+                            <th class="text-center align-middle">Status Validasi</th>
+                            <th class="text-center align-middle">Status Promosi</th>
+                            <th class="text-center align-end"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Data akan dimasukkan di sini oleh JavaScript -->
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center" style="height: 100px">
+        <nav>
+            <ul class="pagination justify-content-center" id="pagination">
+                <!-- Tautan paginasi akan dimasukkan di sini oleh JavaScript -->
+            </ul>
+        </nav>
     </div>
     <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 100px;">
         <div class="row">
@@ -125,5 +151,97 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS for pagination -->
+    <script>
+        $(document).ready(function () {
+            const rowsPerPage = 5;
+            let currentPage = 1;
+            let data = @json($promosi); // Mengambil data dari controller
+    
+            function renderTable(data, page) {
+                $('#table-body').empty();
+                let start = (page - 1) * rowsPerPage;
+                let end = start + rowsPerPage;
+                let paginatedData = data.slice(start, end);
+    
+                paginatedData.forEach((row, index) => {
+                    let statusPromosiImage = '';
+                    if (row.status_promosi === 'Aktif') {
+                        statusPromosiImage = '<img src="gambar/aktif.png" style="width: 100px; height: 35px;">';  
+                    } else if (row.status_promosi === 'Nonaktif') {
+                        statusPromosiImage = '<img src="gambar/nonaktif.png" style="width: 100px; height: 35px;">';
+                    }
+                    let statusValidasiImage = '';
+                    if (row.status_validasi === 'Diterima') {
+                        statusValidasiImage = '<img src="gambar/diterima.png" style="width: 100px; height: 35px;">';  
+                    } else if (row.status_validasi === 'Ditolak') {
+                        statusValidasiImage = '<img src="gambar/ditolak.png" style="width: 100px; height: 35px;">';
+                    }
+                    let detailUrl = `{{ url('detail_pengajuan_promosi') }}?id=${row.id_promosi}`;
+                    let detailProgres = `{{ url('progres_pengajuan_sertifikasi_fasilitator') }}?id=${row.id_progres}`;
+                    $('#table-body').append(`
+                        <tr style="height: 85px">
+                            <td class="text-center align-middle">${start + index + 1}</td>
+                            <td class="text-center align-middle">${row.nama_usaha}</td>
+                            <td class="text-center align-middle">${row.nama_produk}</td>
+                            <td class="text-center align-middle">${row.harga}</td>
+                            <td class="text-center align-middle">${statusValidasiImage}</td>
+                            <td class="text-center align-middle">${statusPromosiImage}</td>
+                            <td class="text-center align-middle">
+                                <a href="${detailProgres}" class="btn progres" role="button" style="margin-right:5px"></a>
+                                <a href="${detailUrl}" class="btn lihat_detail" role="button"></a>
+                            </td>
+                        </tr>
+                    `);
+                });
+            }
+    
+            function renderPagination(data, page) {
+                $('#pagination').empty();
+                let totalPages = Math.ceil(data.length / rowsPerPage);
+    
+                $('#pagination').append(`
+                    <li class="page-item ${page === 1 ? 'disabled' : ''}">
+                        <a class="page-link" href="#" aria-label="Previous" id="prev-page">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                `);
+    
+                for (let i = 1; i <= totalPages; i++) {
+                    $('#pagination').append(`
+                        <li class="page-item ${i === page ? 'active' : ''}">
+                            <a class="page-link" href="#">${i}</a>
+                        </li>
+                    `);
+                }
+    
+                $('#pagination').append(`
+                    <li class="page-item ${page === totalPages ? 'disabled' : ''}">
+                        <a class="page-link" href="#" aria-label="Next" id="next-page">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                `);
+    
+                $('.page-link').on('click', function (e) {
+                    e.preventDefault();
+                    let newPage = $(this).text();
+                    if ($(this).attr('aria-label') === 'Previous') {
+                        currentPage = currentPage > 1 ? currentPage - 1 : 1;
+                    } else if ($(this).attr('aria-label') === 'Next') {
+                        currentPage = currentPage < totalPages ? currentPage + 1 : totalPages;
+                    } else {
+                        currentPage = parseInt(newPage);
+                    }
+                    renderTable(data, currentPage);
+                    renderPagination(data, currentPage);
+                });
+            }
+    
+            renderTable(data, currentPage);
+            renderPagination(data, currentPage);
+        });
+    </script>         
 </body>
 </html>

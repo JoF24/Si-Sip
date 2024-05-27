@@ -5,6 +5,7 @@ use App\Http\Controllers\akun_fasilitatorController;
 use App\Http\Controllers\akun_petaniController;
 use App\Http\Controllers\beranda_loginController;
 use App\Http\Controllers\detail_pegajuan_sertifikasi_petani_kopiController;
+use App\Http\Controllers\detail_pengajuan_promosiController;
 use App\Http\Controllers\detail_pengajuan_sertifikasi_adminController;
 use App\Http\Controllers\detail_pengajuan_sertifikasi_fasilitatorController;
 use App\Http\Controllers\detail_promosiController;
@@ -117,3 +118,7 @@ Route::get('menambah_promosi_petani_kopi', [menambah_promosi_petani_kopiControll
 Route::post('kirim_pengajuan_promosi', [menambah_promosi_petani_kopiController::class, 'kirim_pengajuan_promosi'])->name('kirim_pengajuan_promosi');
 #Fitur Promosi Fasilitator
 Route::get('promosi_fasilitator',[promosi_fasilitatorController::class, 'index'])->name('promsi_fasilitator');
+#Fitur Promosi Admin
+Route::get('promosi_admin', [promosi_adminController::class, 'index'])->name('promosi_admin');
+Route::get('detail_pengajuan_promosi',[detail_pengajuan_promosiController::class, 'index'])->name('detail_pengajuan_promosi');
+Route::post('ubah_status_promosi',[detail_pengajuan_promosiController::class, 'ubah_status_promosi'])->name('ubah_status_promosi');

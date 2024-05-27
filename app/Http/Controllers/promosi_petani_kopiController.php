@@ -16,7 +16,7 @@ class promosi_petani_kopiController extends Controller
             // Jika ada data pengguna dalam session, ambil informasi pengguna
             $user = $request->session()->get('user');
             $promosiku = promosi::where("nama_usaha", $user->nama_usaha)->get();
-            $promosilain = promosi::whereNot("nama_usaha", $user->nama_usaha)->get();
+            $promosilain = promosi::whereNot("nama_usaha", $user->nama_usaha)->where('status_promosi', 'Aktif')->get();
             return view('promosi_petani_kopi', compact('user','promosiku','promosilain'));
         } else {
             // Jika tidak ada data pengguna dalam session, redirect ke halaman login

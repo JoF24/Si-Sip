@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\promosi;
 use Illuminate\Http\Request;
 
-class promosi_fasilitatorController extends Controller
+class detail_pengajuan_promosiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,12 @@ class promosi_fasilitatorController extends Controller
         if ($request->session()->has('user')) {
             // Jika ada data pengguna dalam session, ambil informasi pengguna
             $user = $request->session()->get('user');
-            $promosi = promosi::where('status_promosi', 'Aktif')->get();
-            return view('promosi_fasilitator', compact('user','promosi'));
+            $id = $_GET['id'];
+            $promosi = promosi::where('id_promosi', $id)->get();
+            foreach ($promosi as $p) {
+                $promosi = $p;
+            }
+            return view('detail_pengajuan_promosi', compact('user','promosi'));
         } else {
             // Jika tidak ada data pengguna dalam session, redirect ke halaman login
             return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu.');
@@ -69,5 +73,14 @@ class promosi_fasilitatorController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function ubah_status_promosi(Request $request){
+        $id_promosi = (int)$request->id_promosi;
+        promosi::where('id_promosi', $id_promosi)->update([
+            'status_validasi' => $request->status_validasi,
+            'status_promosi' => $request->status_promosi
+        ]);
+        $user = $request->user();
+        return redirect()->route('promosi_admin', ['data' => $user->username]);
     }
 }
