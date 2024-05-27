@@ -67,7 +67,7 @@
                         <a class="nav-link active navbar-font" href="sertifikasi_fasilitator">Sertifikasi</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="#">Promosi</a>
+                        <a class="nav-link navbar-font" href="promosi_fasilitator">Promosi</a>
                     </li>
                 </ul>
             </div>

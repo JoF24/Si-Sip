@@ -32,10 +32,10 @@
                         <a class="nav-link active navbar-font" aria-current="page" href="pelatihan_petani">Pelatihan</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="sertifikasi">Sertifikasi</a>
+                        <a class="nav-link navbar-font" href="sertifikasi_petani">Sertifikasi</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="promosi">Promosi</a>
+                        <a class="nav-link navbar-font" href="promosi_petani_kopi">Promosi</a>
                     </li>
                 </ul>
             </div>

@@ -135,42 +135,40 @@
     <div class="d-flex justify-content-center align-items-center judul-font mt-5" style="height: auto;">
         <div class="row">
             <div class="col-md-4 md-3 mb-sm-0">
-                <div class="card" style="width:300px">
+                <div class="card" style="width:300px;height:640px">
                     <a href="{{ $user->role === 'Petani'||$user->role === 'Fasilitator' ? url('/pelatihan_budidaya_kopi').'?judul=kosong' : 'pelatihan_admin' }}" style="text-decoration:none; color:inherit">
-                        <div class="card" style="width:300px">
-                            <div class="d-flex justify-content-center align-items-center" style="width: 300px;height: 300px">
-                                <img src="gambar/Budidaya.png" alt="" style="width:270px">
-                            </div>
-                            <div class="card-body">
-                                <h2 class="card-title">Budidaya Kopi</h2>
-                                <p class="card-title" style="color:darkgrey;">Pengolahan Kopi: Penjelasan singkat tentang proses pengolahan buah kopi menjadi biji kopi yang siap digunakan, meliputi tahap pemisahan, fermentasi, pengeringan, dan pengupasan, untuk menghasilkan biji kopi berkualitas biji kopi berkualitas..</p>
-                            </div>
+                        <div class="d-flex justify-content-center align-items-center" style="width: 300px;height: 300px">
+                            <img src="gambar/Budidaya.png" alt="" style="width:270px">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title">Budidaya Kopi</h2>
+                            <p class="card-title" style="color:darkgrey;">Budidaya kopi adalah proses penanaman dan perawatan tanaman kopi untuk menghasilkan biji kopi yang berkualitas. Yang nantinya berpengaruh pada sebuah biji kopi</p>
                         </div>
                     </a>                    
                 </div>
             </div>
             <div class="col-md-4 md-3 mb-sm-0">
-                <div class="card" style="width:300px">
+                <div class="card" style="width:300px;height:640px">
                     <a href="{{ $user->role === 'Petani' || $user->role === 'Fasilitator' ? url('/pelatihan_pengolahan_kopi').'?judul=kosong' : 'pelatihan_admin' }}" style="text-decoration:none; color:inherit">
                         <div class="d-flex justify-content-center align-items-center" style="width: 300px;height:300px">
                             <img src="gambar/Pengolahan.png" alt="" style="width: 270px">
                         </div>
                         <div class="card-body">
                             <h2 class="card-title">Pengolahan Kopi</h2>
-                            <p class="card-title" style="color: darkgrey;">Pengolahan Kopi: Penjelasan singkat tentang proses pengolahan buah kopi menjadi biji kopi yang siap digunakan, meliputi tahap pemisahan, fermentasi, pengeringan, dan pengupasan, untuk menghasilkan biji kopi berkualitas biji kopi berkualitas..</p>
+                            <p class="card-title" style="color: darkgrey;">Pengolahan kopi adalah proses mengolah biji kopi mentah menjadi biji kopi siap saji yang dapat digunakan untuk menyeduh minuman kopi. Proses ini mencakup beberapa tahap utama dan penting untuk proses selanjutnya.</p>
                         </div>
                     </a>
                 </div>
             </div>
             <div class="col-md-4 md-3 mb-sm-0">
-                <div class="card" style="width: 300px">
+                <div class="card" style="width: 300px;height:640px">
                     <a href="{{ $user->role === 'Petani' || $user->role === 'Fasilitator' ? url('/pelatihan_pemasaran_kopi').'?judul=kosong' : 'pelatihan_admin' }}" style="text-decoration:none; color:inherit">
                         <div class="d-flex justify-content-center align-items-center" style="width:300px; height:300px">
                             <img src="gambar/Pemasaran.png" alt="" style="width:270px">
                         </div>
                         <div class="card-body">
-                            <h2 class="card-title">Pemasaran Kopi</h2>
-                            <p class="card-title" style="color: darkgrey;">Pemasaran kopi melibatkan berbagai strategi untuk mempromosikan dan menjual produk kopi kepada konsumen. Ini termasuk segmentasi pasar untuk memahami preferensi konsumen, branding untuk menciptakan identitas merek yang kuat....</p>
+                            <h2 class="card-title">Barista</h2>
+                            <p class="card-title" style="color: darkgrey;">Barista adalah seorang profesional yang terlatih dalam meracik dan menyajikan berbagai jenis minuman kopi. Mereka bekerja di kafe, kedai kopi, atau restoran, dan memiliki pengetahuan mendalam tentang berbagai jenis biji kopi, teknik penyeduhan, serta cara penggunaan mesin espresso.</p>
                         </div>
                     </a>
                 </div>
@@ -195,7 +193,7 @@
         <div class="row">
             <div class="col-6 mb-3" style="width: 500px;">
                 <p>Sertifikasi produk adalah kegiatan penilaian kesesuaian suatu produk terhadap persyaratan yang ditentukan dalam Standar Nasional Indonesia (SNI) melalui serangkaian kegiatan audit, pengujian, dan/atau inspeksi.</p>
-                <a class="btn gambar-tombol-selengkapnya" role="button" href="#"></a>
+                <a class="btn gambar-tombol-selengkapnya" role="button" href="sertifikasi_petani"></a>
             </div>
             <div class="col-6 mb-3">
                 <div class="d-flex justify-content-center">
@@ -213,36 +211,18 @@
     </div>
     <div class="d-flex justify-content-center align-items-center judul-font" style="height: 450px;">
         <div class="row">
-            <div class="col-4 mb-3">
-                <div class="card" style="width:18rem;border-top:none;border-bottom:none;border-left:none;border-right:none;">
-                    <img src="gambar/Frame 48095539.png" alt="">
-                    <div class="card-body">
-                        <p class="card-title">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta, non! Facilis eveniet sequi tenetur deleniti, quaerat totam consectetur libero minima, at et quis animi vel adipisci odio, debitis iusto quo.</p>
-                    </div>
-                </div>
+            <div class="col-6 mb-3" style="width: 400px;">
+                <p>Temukan berbagai macam produk unggulan dengan harga terbaik hanya di SI-SIP. Kami menyediakan beragam pilihan barang berkualitas tinggi untuk memenuhi segala kebutuhan Anda. kami siap memberikan penawaran istimewa yang tak boleh Anda lewatkan.</p>
+                <a class="btn gambar-tombol-selengkapnya" role="button" href="promosi_petani_kopi"></a>
             </div>
-            <div class="col-4 mb-3">
-                <div class="card" style="width:18rem;border-top:none;border-bottom:none;border-left:none;border-right:none;">
-                    <img src="gambar/Frame 48095539 (1).png" alt="">
-                    <div class="card-body">
-                        <p class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis praesentium iusto, asperiores, optio molestiae, libero dignissimos repellendus alias expedita aperiam odio maxime quia consectetur ratione ex eos quidem quas officiis.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4 mb-3">
-                <div class="card" style="width:18rem;border-top:none;border-bottom:none;border-left:none;border-right:none;">
-                    <img src="gambar/Frame 48095539 (2).png" alt="">
-                    <div class="card-body">
-                        <p class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ipsum officiis, numquam voluptates alias et ipsam fugiat atque provident totam odit dolores, adipisci molestiae unde consectetur, quasi sit earum accusamus?</p>
-                    </div>
+            <div class="col-6 mb-3">
+                <div class="d-flex justify-content-center" style="margin-left: 50px">
+                    <img src="gambar/promosi.png" alt="sertifikasi" width="400px" height="300px">
                 </div>
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-center" style="height: 200px;">
-        <a class="btn gambar-tombol-selengkapnya" role="button" href="#"></a>
-    </div>
-    <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 100px;">
+    <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 120px;">
         <div class="row">
             <div class="col-3 mb-3">
                 <div class="card warna-footer" style="width:px;border-top:none;border-bottom:none;border-left:none;border-right:none;">

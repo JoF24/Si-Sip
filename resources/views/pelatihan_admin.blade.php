@@ -53,10 +53,10 @@
                         <a class="nav-link active navbar-font" aria-current="page" href="pelatihan_admin">Pelatihan</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="#">Sertifikasi</a>
+                        <a class="nav-link navbar-font" href="sertifikasi_admin">Sertifikasi</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="#">Promosi</a>
+                        <a class="nav-link navbar-font" href="promosi_admin">Promosi</a>
                     </li>
                 </ul>
             </div>
