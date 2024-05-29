@@ -38,6 +38,10 @@
             width: 70px;
             height: 28px;
         }
+        .table-responsive {
+            max-height: 350px;
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body>
@@ -108,15 +112,15 @@
         <div class="card" style="width: 1000px;height:450px">
             <div class="card-body">
                 <h3>Daftar Video</h3>
-                <table class="table">
+                <table class="table-responsive" style="width: 950px">
                     <thead>
                         <tr>
-                            <th>Video</th>
+                            <th class="text-center">Video</th>
                             <th> </th>
-                            <th>Status</th>
-                            <th>Kategori</th>
-                            <th>Tanggal Upload</th>
-                            <th>Tanggal Nonaktif</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Kategori</th>
+                            <th class="text-center">Tanggal Upload</th>
+                            <th class="text-center">Tanggal Nonaktif</th>
                             <th> </th>
                         </tr>
                     </thead>

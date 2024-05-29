@@ -66,74 +66,44 @@
             @endforeach
         </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center judul-font mt-4" style="height: 500px;">
+    <div class="d-flex justify-content-center align-items-center judul-font mt-4 mb-5" style="height: 600px;">
         <div class="row">
             <div class="col-md-4 md-3 mb-sm-0">
                 <a href="{{ url('/pelatihan_budidaya_kopi') }}?judul=kosong" style="text-decoration:none; color:inherit">
-                    <div class="card" style="width:300px">
+                    <div class="card" style="width:300px; height:580px">
                         <div class="d-flex justify-content-center align-items-center" style="width: 300px;height: 300px">
                             <img src="gambar/Budidaya.png" alt="" style="width:270px">
                         </div>
                         <div class="card-body">
                             <h2 class="card-title">Budidaya Kopi</h2>
-                            <p class="card-title" style="color:darkgrey;">Pelatihan ini meningkatkan pengetahuan dan keterampilan dalam menyangrai kopi...</p>
+                            <p class="card-title" style="color:darkgrey;">Budidaya kopi adalah proses penanaman dan perawatan tanaman kopi untuk menghasilkan biji kopi yang berkualitas. Yang nantinya berpengaruh pada sebuah biji kopi</p>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-md-4 md-3 mb-sm-0">
                 <a href="{{ url('/pelatihan_pengolahan_kopi') }}?judul=kosong" style="text-decoration:none; color:inherit">
-                    <div class="card" style="width:300px">
+                    <div class="card" style="width:300px;height:580px">
                         <div class="d-flex justify-content-center align-items-center" style="width: 300px;height:300px">
                             <img src="gambar/Pengolahan.png" alt="" style="width: 270px">
                         </div>
                         <div class="card-body">
                             <h2 class="card-title">Pengolahan Kopi</h2>
-                            <p class="card-title" style="color: darkgrey;">Pelatihan ini meningkatkan pengetahuan dan keterampilan dalam menyangrai kopi...</p>
+                            <p class="card-title" style="color: darkgrey;">Pengolahan kopi adalah proses mengolah biji kopi mentah menjadi biji kopi siap saji yang dapat digunakan untuk menyeduh minuman kopi. Proses ini mencakup beberapa tahap utama dan penting untuk proses selanjutnya.</p>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-md-4 md-3 mb-sm-0">
-                <a href="{{ url('/pelatihan_pemasaran_kopi') }}?judul=kosong" style="text-decoration:none; color:inherit">
-                    <div class="card" style="width: 300px">
+                <a href="{{ url('/pelatihan_barista') }}?judul=kosong" style="text-decoration:none; color:inherit">
+                    <div class="card" style="width: 300px;height:580px">
                         <div class="d-flex justify-content-center align-items-center" style="width:300px; height:300px">
                             <img src="gambar/Pemasaran.png" alt="" style="width:270px">
                         </div>
                         <div class="card-body">
-                            <h2 class="card-title">Pemasaran Kopi</h2>
-                            <p class="card-title" style="color: darkgrey;">Pelatihan ini meningkatkan pengetahuan dan keterampilan dalam menyangrai kopi...</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="d-flex justify-content-center align-items-center judul-font" style="height: 600px">
-        <div class="row">
-            <div class="col-6 md-3 mb-sm-0">
-                <a href="{{ url('/pelatihan_barista') }}?judul=kosong" style="text-decoration: none; color:inherit">
-                    <div class="card" style="width:300px">
-                        <div class="d-flex justify-content-center align-items-center" style="width:300px; height:300px">
-                            <img src="gambar/Barista.png" alt="" style="width:270px">
-                        </div>
-                        <div class="card-body">
                             <h2 class="card-title">Barista</h2>
-                            <p class="card-title" style="color:darkgrey;">Pelatihan ini meningkatkan pengetahuan dan keterampilan dalam menyangrai kopi...</p>
-                        </div>        
-                    </div>
-                </a>
-            </div>
-            <div class="col-6 md-3 mb-sm-0">
-                <a href="{{ url('/pelatihan_kewirausahaan') }}?judul=kosong" style="text-decoration:none; color:inherit">
-                    <div class="card" style="width:300px">
-                        <div class="d-flex justify-content-center align-items-center" style="width:300px; height:300px">
-                            <img src="gambar/Kewirausahaan.png" alt="" style="width:270px">
+                            <p class="card-title" style="color: darkgrey;">Barista adalah seorang profesional yang terlatih dalam meracik dan menyajikan berbagai jenis minuman kopi. Mereka bekerja di kafe, kedai kopi, atau restoran, dan memiliki pengetahuan mendalam tentang berbagai jenis biji kopi, teknik</p>
                         </div>
-                        <div class="card-body">
-                            <h2 class="card-title">Kewirausahaan</h2>
-                            <p class="card-title" style="color: darkgrey;">Pelatihan ini meningkatkan pengetahuan dan keterampilan dalam menyangrai kopi...</p>
-                        </div>                        
                     </div>
                 </a>
             </div>

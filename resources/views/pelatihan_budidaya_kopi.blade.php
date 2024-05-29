@@ -142,7 +142,7 @@
                         <div class="video-gallery d-flex">
                             @foreach($tampilkan as $tampil)
                             @if ($tampil->status == "Aktif")
-                            <a href="{{$tampil->judul ? 'pelatihan_pengolahan_kopi?judul='.urlencode($tampil->judul) : 'pelatihan_pengolahan_kopi'}}" style="text-decoration: none;color:inherit">
+                            <a href="{{$tampil->judul ? 'pelatihan_budidaya_kopi?judul='.urlencode($tampil->judul) : 'pelatihan_pengolahan_kopi'}}" style="text-decoration: none;color:inherit">
                                 <div class="video-card card" style="height: 100px;width:450px">
                                     <div class="row">
                                         <div class="col-5">
@@ -173,7 +173,7 @@
             <div class="card-body">
                 <h4 class="card-title" style="font-weight: bold">Tentang Pelatihan</h4>
                 <br>
-                <p class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non quaerat impedit rem ex, architecto sint? Asperiores voluptatum saepe possimus quo eveniet amet, est recusandae! Molestias saepe maxime error molestiae quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore magnam voluptatum sint laborum minima ipsam nesciunt ipsa, odio modi laboriosam necessitatibus consequatur porro, accusantium magni temporibus perferendis culpa! Blanditiis, dolore.</p>
+                <p class="card-title">Budidaya kopi adalah proses penanaman dan perawatan tanaman kopi untuk menghasilkan biji kopi yang berkualitas. Yang nantinya berpengaruh pada sebuah biji kopi.</p>
             </div>
         </div>
     </div>

@@ -206,7 +206,7 @@
         <div class="card" style="border-top:none;border-bottom: 1px solid #000;border-left:none;border-right:none;width:65rem"></div>
     </div> 
     <div class="d-flex justify-content-center">...</div>
-    <div class="d-flex justify-content-center judul-font" style="height: 100px;">
+    <div class="d-flex justify-content-center judul-font" style="height: 40px;">
         <h1>Promosi</h1>
     </div>
     <div class="d-flex justify-content-center align-items-center judul-font" style="height: 450px;">

@@ -178,7 +178,6 @@
                         statusValidasiImage = '<img src="gambar/ditolak.png" style="width: 100px; height: 35px;">';
                     }
                     let detailUrl = `{{ url('detail_pengajuan_promosi') }}?id=${row.id_promosi}`;
-                    let detailProgres = `{{ url('progres_pengajuan_sertifikasi_fasilitator') }}?id=${row.id_progres}`;
                     $('#table-body').append(`
                         <tr style="height: 85px">
                             <td class="text-center align-middle">${start + index + 1}</td>
@@ -188,7 +187,6 @@
                             <td class="text-center align-middle">${statusValidasiImage}</td>
                             <td class="text-center align-middle">${statusPromosiImage}</td>
                             <td class="text-center align-middle">
-                                <a href="${detailProgres}" class="btn progres" role="button" style="margin-right:5px"></a>
                                 <a href="${detailUrl}" class="btn lihat_detail" role="button"></a>
                             </td>
                         </tr>

@@ -171,7 +171,7 @@
             <div class="card-body">
                 <h4 class="card-title" style="font-weight: bold">Tentang Pelatihan</h4>
                 <br>
-                <p class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non quaerat impedit rem ex, architecto sint? Asperiores voluptatum saepe possimus quo eveniet amet, est recusandae! Molestias saepe maxime error molestiae quidem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore magnam voluptatum sint laborum minima ipsam nesciunt ipsa, odio modi laboriosam necessitatibus consequatur porro, accusantium magni temporibus perferendis culpa! Blanditiis, dolore.</p>
+                <p class="card-title">Pengolahan kopi adalah proses mengolah biji kopi mentah menjadi biji kopi siap saji yang dapat digunakan untuk menyeduh minuman kopi. Proses ini mencakup beberapa tahap utama dan penting untuk proses selanjutnya.</p>
             </div>
         </div>
     </div>
