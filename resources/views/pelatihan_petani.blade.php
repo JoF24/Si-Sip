@@ -57,9 +57,9 @@
                             <li><a>Peran: {{ $user->role }}</a></li>
                             <li role="separator" class="divider"></li>
                             @if ($user->role == 'Petani')
-                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}" style="color:red">Akun</a></li>
+                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}" style="color:black">Akun</a></li>
                             @elseif($user->role == 'Fasilitator')
-                            <li><a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}" style="color:red">Akun</a></li>
+                            <li><a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}" style="color:black">Akun</a></li>
                             @endif
                             <li><a href="{{ route('actionlogout') }}" style="color:red"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
