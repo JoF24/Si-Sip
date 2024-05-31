@@ -57,8 +57,8 @@
                         <ul class="dropdown-menu">
                             <li><a>Peran: {{ $user->role }}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}">Akun</a></li>
-                            <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            <li><a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}" style="color:red">Akun</a></li>
+                            <li><a href="{{ route('actionlogout') }}" style="color:red"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -82,8 +82,8 @@
                 <label for="provinsi" class="mb-3" style="font-weight: bold;">Provinsi</label>
                 <select name="provinsi" id="provinsi" class="form-select" required>
                     <option value="Jawa Timur"{{ $user->provinsi == 'Jawa Timur' ? 'selected' : '' }}>Jawa Timur</option>
-                    <option value="Jawa Barat"{{ $user->provinsi == 'Jawa Barat' ? 'selected' : '' }}>Jawa Barat</option>
                     <option value="Jawa Tengah"{{ $user->provinsi == 'Jawa Tengah' ? 'selected' : '' }}>Jawa Tengah</option>
+                    <option value="Jawa Barat"{{ $user->provinsi == 'Jawa Barat' ? 'selected' : '' }}>Jawa Barat</option>
                 </select>
             </div>
             <div class="col-6 mb-3">
@@ -121,12 +121,10 @@
                 <label for="kabupaten" class="mb-3" style="font-weight: bold;">Kabupaten</label>
                 <select name="kabupaten" id="kabupaten" class="form-select" required>
                     <option value="Jember" {{ $user->kabupaten == 'Jember' ? 'selected' : '' }}>Jember</option>
-                    <option value="Banyuwangi"{{ $user->kabupaten == 'Banyuwangi' ? 'selected' : '' }}>Banyuwangi</option>
+                    <option value="Situbondo"{{ $user->kabupaten == 'Situbondo' ? 'selected' : '' }}>Situbondo</option>
                     <option value="Bondowoso"{{ $user->kabupaten == 'Bondowoso' ? 'selected' : '' }}>Bondowoso</option>
-                    <option value="Sidoarjo"{{ $user->kabupaten == 'Sidoarjo' ? 'selected' : '' }}>Sidoarjo</option>
-                    <option value="Lumajang"{{ $user->kabupaten == 'Lumajang' ? 'selected' : '' }}>Lumajang</option>
-                    <option value="Malang"{{ $user->kabupaten == 'Malang' ? 'selected' : '' }}>Malang</option>
-                    <option value="Surabaya"{{ $user->kabupaten == 'Surabaya' ? 'selected' : '' }}>Surabaya</option>
+                    <option value="Banyuwangi"{{ $user->kabupaten == 'Banyuwangi' ? 'selected' : '' }}>Banyuwangi</option>
+                    <option value="Probolinggo"{{ $user->kabupaten == 'Probolinggo' ? 'selected' : '' }}>Probolinggo</option>
                 </select>
             </div>
             <div class="col-6 mt-4">

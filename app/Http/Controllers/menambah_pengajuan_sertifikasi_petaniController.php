@@ -106,8 +106,7 @@ class menambah_pengajuan_sertifikasi_petaniController extends Controller
         ]);
         $tanggal_saat_ini = date("d/m/Y");
         progres::create([
-            'kemajuan' => 1,
-            'tanggal_submit' => $tanggal_saat_ini,
+            'kemajuan' => null,
         ]);
         Session::flash('message', 'Data Berhasil Ditambahkan');
         return redirect('sertifikasi_petani');

@@ -116,25 +116,24 @@
                 <select name="kabupaten" id="kabupaten" class="form-select" required>
                     <option value="" disabled selected hidden>Pilih Kabupaten</option>
                     <option value="Jember">Jember</option>
-                    <option value="Banyuwangi">Banyuwangi</option>
+                    <option value="Situbondo">Situbondo</option>
                     <option value="Bondowoso">Bondowoso</option>
-                    <option value="Sidoarjo">Sidoarjo</option>
-                    <option value="Lumajang">Lumajang</option>
-                    <option value="Malang">Malang</option>
-                    <option value="Surabaya">Surabaya</option>
+                    <option value="Banyuwangi">Banyuwangi</option>
+                    <option value="Probolinggo">Probolinggo</option>
                 </select>
             </div>
             <div class="col-6 mb-3">
                 <label for="password" class="mb-3" style="font-weight: bold;">Password</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Password" required>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Password" required oninput="validatePassword()">
+                <div id="error-message" style="color: red; font-weight: bold; margin-top: 5px;"></div>
             </div>
             <div class="col-6 mb-3">
                 <label for="provinsi" class="mb-3" style="font-weight: bold;">Provinsi</label>
                 <select name="provinsi" id="provinsi" class="form-select" required>
                     <option value="" disabled selected hidden>Pilih Provinsi</option>
                     <option value="Jawa Timur">Jawa Timur</option>
-                    <option value="Jawa Barat">Jawa Barat</option>
                     <option value="Jawa Tengah">Jawa Tengah</option>
+                    <option value="Jawa Barat">Jawa Barat</option>
                 </select>
             </div>
             <div class="col-6 mb-3">
@@ -223,6 +222,20 @@
                 konfirmasiPasswordError.textContent = 'Password dan Konfirmasi Password tidak cocok.';
                 return false;
             }
+            return true;
+        }
+    </script>
+    <script>
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+            const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+            if (!regex.test(password)) {
+                errorMessage.textContent = 'Password harus berisi angka, huruf, dan setidaknya 8 karakter.';
+                return false;
+            }
+            errorMessage.textContent = '';
             return true;
         }
     </script>

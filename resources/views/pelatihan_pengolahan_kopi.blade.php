@@ -94,8 +94,8 @@
                         <ul class="dropdown-menu">
                             <li><a>Peran: {{ $user->role }}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}">Akun</a></li>
-                            <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}" style="color:red">Akun</a></li>
+                            <li><a href="{{ route('actionlogout') }}" style="color:red"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -108,7 +108,7 @@
     <div class="d-flex justify-content-center align-items-start judul-font mt-5" style="height: 550px">
         <div class="row">
             <div class="col-6">
-                <div class="card" style="width: 500px; height:500px">
+                <div class="card" style="width: 500px; height:500px;overflow-y:auto">
                     @if ($judul ==='kosong')
                         
                     @else
@@ -127,7 +127,7 @@
                 </div>
             </div>
             <div class="col-6">
-                <div class="card" style="width: 500px; height:500px">
+                <div class="card" style="width: 500px; height:500px;overflow-y:auto">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6 d-flex justify-content-start">
@@ -141,16 +141,16 @@
                             @foreach($tampilkan as $tampil)
                             @if ($tampil->status == "Aktif")
                             <a href="{{$tampil->judul ? 'pelatihan_pengolahan_kopi?judul='.urlencode($tampil->judul) : 'pelatihan_pengolahan_kopi'}}" style="text-decoration: none;color:inherit">
-                                <div class="video-card card" style="height: 100px;width:450px">
-                                    <div class="row">
+                                <div class="video-card card" style="height: 100px;width:450px;">
+                                    <div class="row w-100">
                                         <div class="col-5">
                                             <div class="d-flex justify-content-center align-items-center" style="height: 100px;width:200px">
                                                 <img src="{{ asset('storage/gambar_video/' . $tampil->gambar) }}" class="card-img-top video-thumbnail" alt="Video 1" style="height: 80px;width:150px">
                                             </div>
                                         </div>
                                         <div class="col-7" style="color: darkgrey">
-                                            <div class="d-flex align-items-center" style="height: 100px">
-                                                <p>{{ $tampil->judul }}</p>
+                                            <div class="d-flex align-items-center" style="height: 100px;width:100%">
+                                                <p style="word-wrap: break-word; overflow-wrap: break-word; white-space: normal;">{{ $tampil->judul }}</p>
                                             </div>
                                         </div>
                                     </div>

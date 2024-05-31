@@ -32,10 +32,18 @@
                         <a class="nav-link active navbar-font" aria-current="page" href="pelatihan_petani">Pelatihan</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="sertifikasi_petani">Sertifikasi</a>
+                        @if ($user->role == "Petani")
+                        <a class="nav-link navbar-font" href="sertifikasi_petani">Sertifikasi</a>    
+                        @elseif ($user->role == "Fasilitator")
+                        <a class="nav-link navbar-font" href="sertifikasi_fasilitator">Sertifikasi</a>
+                        @endif
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="promosi_petani_kopi">Promosi</a>
+                        @if ($user->role == "Petani")
+                        <a class="nav-link navbar-font" href="promosi_petani_kopi">Promosi</a>    
+                        @elseif ($user->role == "Fasilitator")
+                        <a class="nav-link navbar-font" href="promosi_fasilitator">Promosi</a>
+                        @endif
                     </li>
                 </ul>
             </div>
@@ -48,8 +56,12 @@
                         <ul class="dropdown-menu">
                             <li><a>Peran: {{ $user->role }}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}">Akun</a></li>
-                            <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            @if ($user->role == 'Petani')
+                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}" style="color:red">Akun</a></li>
+                            @elseif($user->role == 'Fasilitator')
+                            <li><a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}" style="color:red">Akun</a></li>
+                            @endif
+                            <li><a href="{{ route('actionlogout') }}" style="color:red"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -65,10 +65,10 @@
                         <a class="nav-link navbar-font" aria-current="page" href="pelatihan_petani">Pelatihan</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="sertifikasi_petani">Sertifikasi</a>
+                        <a class="nav-link navbar-font" href="sertifikasi_fasilitator">Sertifikasi</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="promosi_petani">Promosi</a>
+                        <a class="nav-link navbar-font" href="promosi_fasilitator">Promosi</a>
                     </li>
                 </ul>
             </div>
@@ -81,8 +81,8 @@
                         <ul class="dropdown-menu">
                             <li><a>Peran: {{ $user->role }}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}">Akun</a></li>
-                            <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            <li><a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}" style="color:red">Akun</a></li>
+                            <li><a href="{{ route('actionlogout') }}" style="color:red"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -74,6 +74,7 @@ class registerController extends Controller
             'nama' => $request->nama,
             'nomor_telepon' => $request->nomor_telepon,
             'alamat' => $request->alamat,
+            'nama_usaha' => $request->nama_usaha,
             'kecamatan' => $request->kecamatan,
             'kabupaten' => $request->kabupaten,
             'provinsi' => $request->provinsi,

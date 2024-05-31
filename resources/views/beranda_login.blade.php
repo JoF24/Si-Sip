@@ -95,14 +95,14 @@
                             <li role="separator" class="divider"></li>
                             <li>
                                 @if ($user->role == 'Petani')
-                                    <a href="{{ url('akun_petani') . '?data=' . $user->username }}">Akun</a>
+                                    <a href="{{ url('akun_petani') . '?data=' . $user->username }}" style="color:red">Akun</a>
                                 @elseif ($user->role == 'Admin')
-                                    <a href="{{url("akun_admin").'?data=' . $user->username}}">Akun</a>
+                                    <a href="{{url("akun_admin").'?data=' . $user->username}}" style="color:red">Akun</a>
                                 @elseif ($user->role == 'Fasilitator')
-                                    <a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}">Akun</a>
+                                    <a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}" style="color:red">Akun</a>
                                 @endif
                             </li>
-                            <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            <li><a href="{{ route('actionlogout') }}" style="color: red"><i class="fa fa-power-off" ></i>Log Out</a></li>
                         </ul>
                     </li>
                 </ul>

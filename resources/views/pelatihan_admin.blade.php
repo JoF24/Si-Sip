@@ -73,8 +73,8 @@
                         <ul class="dropdown-menu">
                             <li><a>Peran: {{ $user->role }}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="akun_admin">Akun</a></li>
-                            <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            <li><a href="akun_admin" style="color:red">Akun</a></li>
+                            <li><a href="{{ route('actionlogout') }}" style="color:red"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -112,38 +112,40 @@
         <div class="card" style="width: 1000px;height:450px">
             <div class="card-body">
                 <h3>Daftar Video</h3>
-                <table class="table-responsive" style="width: 950px">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Video</th>
-                            <th> </th>
-                            <th class="text-center">Status</th>
-                            <th class="text-center">Kategori</th>
-                            <th class="text-center">Tanggal Upload</th>
-                            <th class="text-center">Tanggal Nonaktif</th>
-                            <th> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($tampilkan as $tampil)
-                        <tr>
-                            <td class="text-center align-middle">
-                                <a href="melihat_pelatihan_admin?judul={{ urlencode($tampil->judul) }}" style="text-decoration: none;color:inherit">
-                                    <img src="{{ asset('storage/gambar_video/' . $tampil->gambar) }}" style="width: 150px; height : 100px">                        
-                                </a>                                
-                            </td>
-                            <td class="text-center align-middle">{{ $tampil->judul }}</td>
-                            <td class="text-center align-middle">{{ $tampil->status }}</td>
-                            <td class="text-center align-middle">{{ $tampil->kategori }}</td>
-                            <td class="text-center align-middle">{{ $tampil->tanggal_upload }}</td>
-                            <td class="text-center align-middle">{{ $tampil->tanggal_nonaktif }}</td>
-                            <td class="text-center align-middle">
-                                <a href="edit_video?judul={{ urlencode($tampil->judul) }}" class="btn edit-video" type="button"></a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <div class="table-responsive" style="max-height: 350px; overflow-y: auto;">
+                    <table class="table" style="width: 950px">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Video</th>
+                                <th> </th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Kategori</th>
+                                <th class="text-center">Tanggal Upload</th>
+                                <th class="text-center">Tanggal Nonaktif</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($tampilkan as $tampil)
+                            <tr>
+                                <td class="text-center align-middle">
+                                    <a href="melihat_pelatihan_admin?judul={{ urlencode($tampil->judul) }}" style="text-decoration: none;color:inherit">
+                                        <img src="{{ asset('storage/gambar_video/' . $tampil->gambar) }}" style="width: 150px; height : 100px">                        
+                                    </a>                                
+                                </td>
+                                <td class="text-center align-middle">{{ $tampil->judul }}</td>
+                                <td class="text-center align-middle">{{ $tampil->status }}</td>
+                                <td class="text-center align-middle">{{ $tampil->kategori }}</td>
+                                <td class="text-center align-middle">{{ $tampil->tanggal_upload }}</td>
+                                <td class="text-center align-middle">{{ $tampil->tanggal_nonaktif }}</td>
+                                <td class="text-center align-middle">
+                                    <a href="edit_video?judul={{ urlencode($tampil->judul) }}" class="btn edit-video" type="button"></a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

@@ -64,8 +64,8 @@
                         <ul class="dropdown-menu">
                             <li><a>Peran: {{ $user->role }}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}">Akun</a></li>
-                            <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}" style="color:red">Akun</a></li>
+                            <li><a href="{{ route('actionlogout') }}" style="color:red"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -79,7 +79,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center mb-5">
-        <div class="card" style="width: 1000px;height:700px">
+        <div class="card" style="width: 1000px;height:700px;overflow-y:auto">
             <div class="d-flex justify-content-center align-items-center">
                 <div class="d-flex tulisan" style="width:850px">
                     <div class="row w-100">
@@ -92,7 +92,11 @@
                             <img src="gambar/progres 1.png" style="width: 40px; height: 40px;">
                             <p style="margin-right: auto;margin-left:20px;margin-top:15px">{{$keterangan_kemajuan[0]->kemajuan}}</p>
                             <p style="margin-left: auto;">{{$progres->$kemajuans}}</p>
-                        </div> 
+                        </div>
+                        @elseif($kemajuans === 0)
+                        <div class="d-flex justify-content-center" style="margin-top:330px">
+                            <h1>Data Progres masih kosong :(</h1>
+                        </div>
                         @else
                         <div class="col-12" style="display: flex; align-items: center;margin-left:15px">
                             <img src="gambar/garis.png" style="width: 7px; height: 50px;">
@@ -101,13 +105,21 @@
                             <img src="gambar/progres 1.png" style="width: 40px; height: 40px;">
                             @foreach ($keterangan_kemajuan as $keterangan)
                             @if($kemajuans === $keterangan->id_kemajuan)
+                            @if ($keterangan->kemajuan === 'Dikembalikan Oleh Komite Fatwa')
+                            <div class="d-flex flex-column">
+                                <p style="margin-right: auto;margin-left:20px">{{$keterangan->kemajuan}}</p>
+                                <p style="margin-right: auto;margin-left:20px">Catatan : {{$progres->catatan}}</p>
+                            </div>
+                            <p style="margin-left: auto;">{{$progres->$kemajuans}}</p>
+                            @else
                             <p style="margin-right: auto;margin-left:20px;margin-top:15px">{{$keterangan->kemajuan}}</p>
                             <p style="margin-left: auto;">{{$progres->$kemajuans}}</p>
+                            @endif
                             @endif
                             @endforeach
                         </div>
                         @endif
-                    @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>

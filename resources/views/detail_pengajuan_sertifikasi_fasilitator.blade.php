@@ -81,8 +81,8 @@
                         <ul class="dropdown-menu">
                             <li><a>Peran: {{ $user->role }}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}">Akun</a></li>
-                            <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            <li><a href="{{ url('akun_fasilitator') . '?data=' . $user->username }}" style="color:red">Akun</a></li>
+                            <li><a href="{{ route('actionlogout') }}" style="color:red"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -113,13 +113,26 @@
                             <p>Nama Produk<span style="display:inline-block; width: 148px;"></span>: {{ $tampilkan->nama_produk }}</p>
                         </div>
                         <div class="col-12 mb-3">
-                            <p>Izin Usaha<span style="display:inline-block; width: 173px;"></span>: <img src="gambar/pdf.png" alt="" style="width: 35px;height:35px"> {{ $tampilkan->izin_usaha }}</p>
+                            <p>Izin Usaha<span style="display:inline-block; width: 173px;"></span>: 
+                                <a href="{{ $tampilkan->izin_usaha }}" download style="color:black">
+                                    <img src="gambar/pdf.png" alt="" style="width: 35px;height:35px"> 
+                                    {{ $tampilkan->izin_usaha }}</p>
+                                </a>
                         </div>
                         <div class="col-12 mb-3">
-                            <p>Foto Produk<span style="display:inline-block; width: 160px;"></span>: <img src="gambar/image.png" alt="" style="width: 35px;height:35px"> {{ $tampilkan->foto_produk }}</p>
+                            <p>Foto Produk<span style="display:inline-block; width: 160px;"></span>: 
+                                <a href="{{ $tampilkan->foto_produk }}" download style="color:black">
+                                    <img src="gambar/image.png" alt="" style="width: 35px;height:35px"> 
+                                    {{ $tampilkan->foto_produk }}</p>
+                                </a>
                         </div>
                         <div class="col-12 mb-3">
-                            <p>Video Produk<span style="display:inline-block; width: 148px;"></span>: <img src="gambar/audio.png" alt="" style="width: 35px;height:35px"> {{ $tampilkan->video_proses_produk }}</p>
+                            <p>Video Produk<span style="display:inline-block; width: 148px;"></span>: 
+                                <a href="{{ $tampilkan->video_proses_produk }}" download style="color:black">
+                                    <img src="gambar/audio.png" alt="" style="width: 35px; height:35px">
+                                    {{ $tampilkan->video_proses_produk }}
+                                </a> 
+                            </p>
                         </div>
                         <div class="col-12 mb-3">
                             <p>Bahan Digunakan<span style="display:inline-block; width: 117px;"></span>: {{ $tampilkan->bahan_digunakan }}</p>

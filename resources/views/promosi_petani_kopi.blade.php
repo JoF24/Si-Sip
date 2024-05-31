@@ -67,8 +67,8 @@
                         <ul class="dropdown-menu">
                             <li><a>Peran: {{ $user->role }}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}">Akun</a></li>
-                            <li><a href="{{ route('actionlogout') }}"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            <li><a href="{{ url('akun_petani') . '?data=' . $user->username }}" style="color:red">Akun</a></li>
+                            <li><a href="{{ route('actionlogout') }}" style="color:red"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -100,7 +100,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center" style="height: 300px">
-        <div class="d-flex" style="width: 1000px">
+        <div class="d-flex" style="width: 1000px;overflow-y:auto;">
             @foreach($promosiku as $promosi)
             <a href="{{ route('detail_promosi', ['id_promosi' => $promosi->id_promosi]) }}" style="text-decoration: none">
                 <div class="card" style="height: 274px; width: 262px">
@@ -121,7 +121,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center" style="height: 300px">
-        <div class="d-flex" style="width: 1000px">
+        <div class="d-flex" style="width: 1000px;overflow-y:auto;">
             @foreach($promosilain as $promosi)
             <a href="{{ route('detail_promosi', ['id_promosi' => $promosi->id_promosi]) }}" style="text-decoration: none">
                 <div class="card" style="height: 274px; width: 262px">
