@@ -43,7 +43,7 @@
                         <a class="nav-link navbar-font" href="beranda_login">Halaman Utama</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link active navbar-font" aria-current="page" href="pelatihan_admmin">Pelatihan</a>
+                        <a class="nav-link active navbar-font" aria-current="page" href="pelatihan_admin">Pelatihan</a>
                     </li>
                     <li class="nav-item px-3">
                         <a class="nav-link navbar-font" href="sertifikasi_admin">Sertifikasi</a>
