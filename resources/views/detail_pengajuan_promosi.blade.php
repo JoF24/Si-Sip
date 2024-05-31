@@ -96,7 +96,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center mb-5">
-        <div class="card" style="width: 1000px;height:500px">
+        <div class="card" style="width: 1000px;height:500px;overflow-x:auto;">
             <div class="d-flex justify-content-center align-items-center">
                 <div class="d-flex tulisan" style="width:850px">
                     <div class="row w-100">

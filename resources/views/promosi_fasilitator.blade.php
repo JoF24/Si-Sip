@@ -89,7 +89,7 @@
                 @foreach($promosi as $promo)
                 <div class="col-3">
                     <a href="{{ route('detail_promosi', ['id_promosi' => $promo->id_promosi]) }}" style="text-decoration: none">
-                        <div class="card" style="height: 274px; width: 262px">
+                        <div class="card" style="height: 274px; width: 262px;margin-right:20px">
                             <img src="{{ asset('storage/promosi/' . $promo->foto_produk) }}" alt="" style="width: 262px;height:180px">
                             <p class="tulisan mt-3" style="margin-left: 15px;font-weight: 600;font-size: 17px;">{{$promo->nama_produk}}</p>
                             <p class="tulisan" style="margin-left: 15px;font-size: 15px;">Rp{{$promo->harga}}</p>

@@ -71,6 +71,8 @@ Route::get('pelatihan_pemasaran_kopi',[pelatihan_pemasaran_kopiController::class
 Route::get('pelatihan_barista',[pelatihan_baristaController::class, 'index'])->name('pelatihan_barista');
 Route::get('pelatihan_kewirausahaan',[pelatihan_kewirausahaanController::class, 'index'])->name("pelatihan_kewirausahaan");
 Route::get('pelatihan_admin',[pelatihan_adminController::class, 'index'])->name('pelatihan_admin');
+#Fitur Pelatihan Fasilitator
+Route::get('pelatihan_fasilitator',[pelatihan_petaniController::class, 'index'])->name('pelatihan_fasilitator');
 #Fitur Informasi Pelatihan
 Route::get('mengubah_informasi_pelatihan',[mengubah_informasi_pelatihanController::class, 'index'])->name('mengubah_informasi_pelatihan');
 Route::put('simpan_informasi',[mengubah_informasi_pelatihanController::class, 'simpan'])->name('simpan_informasi');

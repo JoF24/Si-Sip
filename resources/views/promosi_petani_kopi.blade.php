@@ -103,7 +103,7 @@
         <div class="d-flex" style="width: 1000px;overflow-y:auto;">
             @foreach($promosiku as $promosi)
             <a href="{{ route('detail_promosi', ['id_promosi' => $promosi->id_promosi]) }}" style="text-decoration: none">
-                <div class="card" style="height: 274px; width: 262px">
+                <div class="card" style="height: 274px; width: 262px; margin-right:20px">
                     <img src="{{ asset('storage/promosi/' . $promosi->foto_produk) }}" alt="" style="width: 262px;height:180px">
                     <p class="tulisan mt-3" style="margin-left: 15px;font-weight: 600;font-size: 17px;">{{$promosi->nama_produk}}</p>
                     <p class="tulisan" style="margin-left: 15px;font-size: 15px;">Rp{{$promosi->harga}}</p>
@@ -124,7 +124,7 @@
         <div class="d-flex" style="width: 1000px;overflow-y:auto;">
             @foreach($promosilain as $promosi)
             <a href="{{ route('detail_promosi', ['id_promosi' => $promosi->id_promosi]) }}" style="text-decoration: none">
-                <div class="card" style="height: 274px; width: 262px">
+                <div class="card" style="height: 274px; width: 262px; margin-right:20px">
                     <img src="{{ asset('storage/promosi/' . $promosi->foto_produk) }}" alt="" style="width: 262px;height:180px">
                     <p class="tulisan mt-3" style="margin-left: 15px;font-weight: 600;font-size: 17px;">{{$promosi->nama_produk}}</p>
                     <p class="tulisan" style="margin-left: 15px;font-size: 15px;">Rp{{$promosi->harga}}</p>
