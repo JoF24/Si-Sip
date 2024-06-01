@@ -83,14 +83,14 @@
             <h1>Daftar Produk</h1>
         </div>
     </div>
-    <div class="d-flex justify-content-center mt-5 mb-5">
-        <div class="d-flex" style="width: 1000px">
+    <div class="d-flex justify-content-center mt-2 mb-5">
+        <div class="d-flex" style="margin-left:100px">
             <div class="row w-100">
                 @foreach($promosi as $promo)
-                <div class="col-3">
+                <div class="col-3 mt-3">
                     <a href="{{ route('detail_promosi', ['id_promosi' => $promo->id_promosi]) }}" style="text-decoration: none">
-                        <div class="card" style="height: 274px; width: 262px;margin-right:20px">
-                            <img src="{{ asset('storage/promosi/' . $promo->foto_produk) }}" alt="" style="width: 262px;height:180px">
+                        <div class="card" style="height: 274px; width: 260px;">
+                            <img src="{{ asset('storage/promosi/' . $promo->foto_produk) }}" alt="" style="width: 260px;height:180px">
                             <p class="tulisan mt-3" style="margin-left: 15px;font-weight: 600;font-size: 17px;">{{$promo->nama_produk}}</p>
                             <p class="tulisan" style="margin-left: 15px;font-size: 15px;">Rp{{$promo->harga}}</p>
                         </div>

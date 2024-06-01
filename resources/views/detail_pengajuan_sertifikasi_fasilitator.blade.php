@@ -48,7 +48,29 @@
             height: 50px;
         }
         .highlight {
-            border: 2px solid blue !important;
+            color: white !important;
+        }
+        .highlight p {
+            color: white !important;
+        }
+        .diterima-card {
+            border-color: green;
+        }
+        .ditinjau-card {
+            border-color:orange;
+        }
+        .ditolak-card {
+            border-color: red;
+        }
+        .highlight.diterima-card {
+            background-color: green;
+        }
+        .highlight.ditinjau-card {
+            background-color: orange;
+            color: white;
+        }
+        .highlight.ditolak-card {
+            background-color: red;
         }
     </style>
 </head>
@@ -160,17 +182,17 @@
                 <input type="hidden" id="id_sertifikasi" name="id_sertifikasi" value="{{$tampilkan->id_sertifikasi}}">
                 <input type="hidden" id="status" name="status" value="">
                 <button type="button" class="status-btn" onclick="setStatus('Diterima', this)" style="border:none; background:none;">
-                    <div class="card d-flex justify-content-center align-items-center" style="width: 300px; height: 60px;border-color:green">
+                    <div class="card d-flex justify-content-center align-items-center diterima-card" style="width: 300px; height: 60px;">
                         <p class="tulisan-tombol mt-2" style="color:green">Diterima</p>
                     </div> 
                 </button>
                 <button type="button" class="status-btn" onclick="setStatus('Ditinjau', this)" style="border:none; background:none;margin-left:25px">
-                    <div class="card d-flex justify-content-center align-items-center" style="width: 300px; height: 60px;border-color:gold">
-                        <p class="tulisan-tombol mt-2" style="color:gold">Ditinjau</p>
+                    <div class="card d-flex justify-content-center align-items-center ditinjau-card" style="width: 300px; height: 60px;">
+                        <p class="tulisan-tombol mt-2" style="color:orange">Ditinjau</p>
                     </div> 
                 </button>
                 <button type="button" class="status-btn" onclick="setStatus('Ditolak', this)" style="border:none; background:none; margin-left:25px;">
-                    <div class="card d-flex justify-content-center align-items-center" style="width: 300px; height: 60px;border-color:red">
+                    <div class="card d-flex justify-content-center align-items-center ditolak-card" style="width: 300px; height: 60px;">
                         <p class="tulisan-tombol mt-2" style="color:red">Ditolak</p>
                     </div> 
                 </button>
@@ -209,19 +231,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         function setStatus(status, element) {
+            // Set the value of the hidden input field for the corresponding status
             document.getElementById('status').value = status;
+        
+            // Clear any existing highlights on buttons
             clearHighlight();
-            element.classList.add('highlight');
+        
+            // Add highlight to the selected button
+            element.querySelector('.card').classList.add('highlight');
         }
         
         function clearHighlight() {
             var buttons = document.getElementsByClassName('status-btn');
             for (var i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove('highlight');
+                buttons[i].querySelector('.card').classList.remove('highlight');
             }
         }
         
         function submitForm() {
+            // Submit the form with the id 'statusForm'
             document.getElementById('statusForm').submit();
         }
     </script>

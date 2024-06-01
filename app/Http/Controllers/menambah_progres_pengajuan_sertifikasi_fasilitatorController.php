@@ -86,7 +86,12 @@ class menambah_progres_pengajuan_sertifikasi_fasilitatorController extends Contr
             $progres = $p;
         }
         $kemajuan = $progres->kemajuan;
-        $gabungan = $kemajuan . ',' . $id_kemajuan;
+        if ($kemajuan == null) {
+            $gabungan = $id_kemajuan;
+        }
+        else{
+            $gabungan = $kemajuan . ',' . $id_kemajuan;
+        }
         $tanggal_saat_ini = date("d/m/Y");
         progres::where('id_progres', $id_progres)->update([
             $id_kemajuan => $tanggal_saat_ini,

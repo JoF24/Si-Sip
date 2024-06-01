@@ -133,7 +133,7 @@
             @endforeach
         </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer" style="height: 100px;">
+    <div class="d-flex justify-content-center align-items-center flex-direction:column judul-font warna-footer mt-5" style="height: 100px;">
         <div class="row">
             <div class="col-3 mb-3">
                 <div class="card warna-footer" style="width:px;border-top:none;border-bottom:none;border-left:none;border-right:none;">

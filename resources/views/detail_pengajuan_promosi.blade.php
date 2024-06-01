@@ -47,8 +47,24 @@
             width: 300px;
             height: 50px;
         }
-        .highlight {
-            border: 2px solid blue !important;
+        .highlight p {
+            color: white !important;
+        }
+    
+        .aktif-card {
+            border-color: green;
+        }
+    
+        .nonaktif-card {
+            border-color: red;
+        }
+    
+        .highlight.aktif-card {
+            background-color: green;
+        }
+    
+        .highlight.nonaktif-card {
+            background-color: red;
         }
     </style>
 </head>
@@ -65,10 +81,10 @@
                         <a class="nav-link navbar-font" aria-current="page" href="pelatihan_admin">Pelatihan</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link active navbar-font" href="sertifikasi_admin">Sertifikasi</a>
+                        <a class="nav-link navbar-font" href="sertifikasi_admin">Sertifikasi</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-font" href="promosi_admin">Promosi</a>
+                        <a class="nav-link active navbar-font" href="promosi_admin">Promosi</a>
                     </li>
                 </ul>
             </div>
@@ -136,18 +152,13 @@
                 <input type="hidden" id="id_promosi" name="id_promosi" value="{{$promosi->id_promosi}}">
                 <input type="hidden" id="statusValidasi" name="status_validasi" value="">
                 <input type="hidden" id="statusPromosi" name="status_promosi" value="">
-    
+
                 <div class="mb-4">
-                    <button type="button" class="status-validasi-btn" onclick="setStatus('Diterima', this, 'statusValidasi')" style="border:none; background:none;">
-                        <div class="card d-flex justify-content-center align-items-center" style="width: 300px; height: 60px; border-color: green;">
-                            <p class="tulisan-tombol mt-2" style="color: green;">Diterima</p>
-                        </div>
-                    </button>
-                    <button type="button" class="status-validasi-btn" onclick="setStatus('Ditolak', this, 'statusValidasi')" style="border:none; background:none; margin-left:25px;">
-                        <div class="card d-flex justify-content-center align-items-center" style="width: 300px; height: 60px; border-color: red;">
-                            <p class="tulisan-tombol mt-2" style="color: red;">Ditolak</p>
-                        </div>
-                    </button>
+                    <select id="statusDropdown" class="form-select" style="width: 300px;" onchange="setStatusDropdown('statusValidasi')">
+                        <option value="" selected disabled>Pilih Status</option>
+                        <option value="Diterima">Diterima</option>
+                        <option value="Ditolak">Ditolak</option>
+                    </select>
                 </div>
     
                 <div class="d-flex justify-content-center" style="height:50px">
@@ -158,17 +169,16 @@
     
                 <div class="mb-4">
                     <button type="button" class="status-promosi-btn" onclick="setStatus('Aktif', this, 'statusPromosi')" style="border:none; background:none;">
-                        <div class="card d-flex justify-content-center align-items-center" style="width: 300px; height: 60px; border-color: green;">
+                        <div class="card d-flex justify-content-center align-items-center aktif-card" style="width: 300px; height: 60px; border-color: green;">
                             <p class="tulisan-tombol mt-2" style="color: green;">Aktif</p>
                         </div>
                     </button>
                     <button type="button" class="status-promosi-btn" onclick="setStatus('Nonaktif', this, 'statusPromosi')" style="border:none; background:none; margin-left:25px;">
-                        <div class="card d-flex justify-content-center align-items-center" style="width: 300px; height: 60px; border-color: red;">
+                        <div class="card d-flex justify-content-center align-items-center nonaktif-card" style="width: 300px; height: 60px; border-color: red;">
                             <p class="tulisan-tombol mt-2" style="color: red;">Nonaktif</p>
                         </div>
                     </button>
                 </div>
-    
                 <div class="d-flex justify-content-center align-items-center mb-4">
                     <div class="mb-3 d-flex justify-content-start" style="width: 1000px">
                         <button class="btn tombol-simpan" style="margin-left:20px;font-size:18px;font-family: 'Inter', sans-serif;" type="submit" onclick="submitForm()">Simpan</button>
@@ -211,24 +221,32 @@
             clearHighlight(inputId);
     
             // Add highlight to the selected button
-            element.classList.add('highlight');
+            var card = element.querySelector('.card');
+            card.classList.add('highlight');
+            var p = card.querySelector('p');
+            p.classList.add('highlight');
         }
     
         function clearHighlight(inputId) {
             // Determine which buttons to clear based on the inputId
-            var buttons;
-            if (inputId === 'statusValidasi') {
-                buttons = document.getElementsByClassName('status-validasi-btn');
-            } else {
-                buttons = document.getElementsByClassName('status-promosi-btn');
-            }
-    
+            var buttons = document.getElementsByClassName('status-promosi-btn');
+            
             // Loop through each button and remove the 'highlight' class
             for (var i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove('highlight');
+                var card = buttons[i].querySelector('.card');
+                card.classList.remove('highlight');
+                var p = card.querySelector('p');
+                p.classList.remove('highlight');
             }
         }
-    
+        function setStatusDropdown(inputId) {
+            // Ambil nilai dari dropdown
+            var status = document.getElementById('statusDropdown').value;
+            
+            // Set nilai dari hidden input
+            document.getElementById(inputId).value = status;
+        }   
+
         function submitForm() {
             // Submit the form with the id 'statusForm'
             document.getElementById('statusForm').submit();
