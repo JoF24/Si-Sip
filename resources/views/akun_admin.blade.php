@@ -47,7 +47,6 @@
             background-size: cover;
             border: none;   
         }
-        <style>
         .page-item:not(.active) .page-link {
             color: black; 
         }

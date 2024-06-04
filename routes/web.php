@@ -12,6 +12,7 @@ use App\Http\Controllers\detail_promosiController;
 use App\Http\Controllers\edit_akun_adminController;
 use App\Http\Controllers\edit_akun_fasilitatorController;
 use App\Http\Controllers\edit_akun_petaniController;
+use App\Http\Controllers\edit_pengajuan_sertifikasi_petani_kopiController;
 use App\Http\Controllers\edit_videoController;
 use App\Http\Controllers\halaman_utamaController;
 use App\Http\Controllers\loginController;
@@ -96,11 +97,13 @@ Route::get('akun_admin', [akun_adminController::class, 'index'])->name('akun_adm
 Route::get('edit_akun_admin', [edit_akun_adminController::class, 'index'])->name('edit_akun_admin');
 Route::post('simpan_akun_admin', [edit_akun_adminController::class, 'simpan_akun_admin'])->name('simpan_akun_admin');
 #Fitur Sertifikasi Petani
-Route::get('sertifikasi_petani', [sertifikasi_petaniController::class, 'index'])->name('sertifikasi');
+Route::get('sertifikasi_petani', [sertifikasi_petaniController::class, 'index'])->name('sertifikasi_petani');
 Route::get('tambah_pengajuan', [menambah_pengajuan_sertifikasi_petaniController::class, 'index'])->name('tambah_pengajuan');
 Route::post('kirim_pengajuan', [menambah_pengajuan_sertifikasi_petaniController::class, 'kirim_pengajuan'])->name('kirim_pengajuan');
 Route::get('detail_pengajuan_sertifikasi_petani_kopi', [detail_pegajuan_sertifikasi_petani_kopiController::class, 'index'])->name('detail_pengajuan_sertifikasi_petani_kopi');
 Route::get('progres_pengajuan_sertifikasi_petani_kopi', [progres_pengajuan_sertifikasi_petani_kopiController::class, 'index'])->name('progres_pengajuan_sertifikasi_petani_kopi');
+Route::get('edit_pengajuan_sertifikasi_petani_kopi',[edit_pengajuan_sertifikasi_petani_kopiController::class, 'index'])->name('edit_pengajuan_sertifikasi_petani_kopi');
+Route::post('kirim_edit_pengajuan',[edit_pengajuan_sertifikasi_petani_kopiController::class, 'kirim_edit_pengajuan'])->name('kirim_edit_pengajuan');
 #Fitur Sertifikasi Admin
 Route::get('sertifikasi_admin', [sertifikasi_adminController::class, 'index'])->name('sertifikasi_admin');
 Route::get('detail_pengajuan_sertifikasi_admin', [detail_pengajuan_sertifikasi_adminController::class, 'index'])->name('detail_pengajuan_sertifikasi_admin');

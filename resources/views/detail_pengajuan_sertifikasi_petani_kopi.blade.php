@@ -33,6 +33,13 @@
             font-size: 17px;
             font-weight: 500;
         }
+        .gambar-tombol-edit{
+            width: 132px;
+            height: 47px;
+            background-image: url("gambar/Edit.png");
+            background-size: cover;
+            border: none;   
+        }
     </style>
 </head>
 <body>
@@ -76,6 +83,9 @@
         <div class="d-flex justify-content-start" style="width: 1000px">
             <a href="sertifikasi_petani" class="btn kembali" role="button"></a>
             <h1 style="margin-left: 20px">Lihat Detail Pengajuan Sertifikasi</h1>
+            @if ($tampilkan->id_status === "Ditinjau")
+            <a href="{{ url('edit_pengajuan_sertifikasi_petani_kopi') . '?id=' . $tampilkan->id_sertifikasi }}" class="btn gambar-tombol-edit" role="button" style="margin-left:260px"></a>
+            @endif
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center mb-5">
