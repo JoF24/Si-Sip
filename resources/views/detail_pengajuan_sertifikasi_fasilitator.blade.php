@@ -136,21 +136,21 @@
                         </div>
                         <div class="col-12 mb-3">
                             <p>Izin Usaha<span style="display:inline-block; width: 173px;"></span>: 
-                                <a href="{{ $tampilkan->izin_usaha }}" download style="color:black">
+                                <a href="{{asset('storage/izin_usaha/' . $tampilkan->izin_usaha)}}" target="_blank" style="color:black">
                                     <img src="gambar/pdf.png" alt="" style="width: 35px;height:35px"> 
                                     {{ $tampilkan->izin_usaha }}</p>
                                 </a>
                         </div>
                         <div class="col-12 mb-3">
                             <p>Foto Produk<span style="display:inline-block; width: 160px;"></span>: 
-                                <a href="{{ $tampilkan->foto_produk }}" download style="color:black">
+                                <a href="{{asset('storage/foto_produk/' . $tampilkan->foto_produk)}}" target="_blank" style="color:black">
                                     <img src="gambar/image.png" alt="" style="width: 35px;height:35px"> 
                                     {{ $tampilkan->foto_produk }}</p>
                                 </a>
                         </div>
                         <div class="col-12 mb-3">
                             <p>Video Produk<span style="display:inline-block; width: 148px;"></span>: 
-                                <a href="{{ $tampilkan->video_proses_produk }}" download style="color:black">
+                                <a href="{{asset('storage/video_produk/' . $tampilkan->video_proses_produk)}}" target="_blank" style="color:black">
                                     <img src="gambar/audio.png" alt="" style="width: 35px; height:35px">
                                     {{ $tampilkan->video_proses_produk }}
                                 </a> 
