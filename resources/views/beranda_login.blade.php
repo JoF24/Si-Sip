@@ -193,7 +193,13 @@
         <div class="row">
             <div class="col-6 mb-3" style="width: 500px;">
                 <p>Sertifikasi produk adalah kegiatan penilaian kesesuaian suatu produk terhadap persyaratan yang ditentukan dalam Standar Nasional Indonesia (SNI) melalui serangkaian kegiatan audit, pengujian, dan/atau inspeksi.</p>
+                @if ($user->role == 'Petani')
                 <a class="btn gambar-tombol-selengkapnya" role="button" href="sertifikasi_petani"></a>
+                @elseif ($user->role == 'Admin')
+                <a class="btn gambar-tombol-lihat" href="sertifikasi_admin"></a>
+                @elseif ($user->role == 'Fasilitator')
+                <a class="btn gambar-tombol-selengkapnya" role="button" href="sertifikasi_fasilitator"></a>
+                @endif
             </div>
             <div class="col-6 mb-3">
                 <div class="d-flex justify-content-center">
@@ -213,7 +219,13 @@
         <div class="row">
             <div class="col-6 mb-3" style="width: 400px;">
                 <p>Temukan berbagai macam produk unggulan dengan harga terbaik hanya di SI-SIP. Kami menyediakan beragam pilihan barang berkualitas tinggi untuk memenuhi segala kebutuhan Anda. kami siap memberikan penawaran istimewa yang tak boleh Anda lewatkan.</p>
+                @if ($user->role == 'Petani')
                 <a class="btn gambar-tombol-selengkapnya" role="button" href="promosi_petani_kopi"></a>
+                @elseif ($user->role == 'Admin')
+                <a class="btn gambar-tombol-selengkapnya" role="button" href="promosi_admin"></a>
+                @elseif ($user->role == 'Fasilitator')
+                <a class="btn gambar-tombol-selengkapnya" role="button" href="promosi_fasilitator"></a>
+                @endif
             </div>
             <div class="col-6 mb-3">
                 <div class="d-flex justify-content-center" style="margin-left: 50px">
