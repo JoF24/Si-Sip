@@ -46,3 +46,5 @@ Project akan berjalan di `http://localhost:8000` (secara default).
 * `resources/views/` – Template Blade.
 * `public/` – File publik (gambar, video).
 * `routes/` – File routing Laravel.
+
+> *Dukung petani kopi lokal dengan teknologi digital!* 🧑🏻‍🌾✨
