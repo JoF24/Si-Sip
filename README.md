@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/gambar/Logo SI-SIP.png" alt="Si-Sip Logo" width="200"/>
+  <img src="public/gambar/logo.jpg" alt="Si-Sip Logo" width="200"/>
 </p>
 # ☕ Si-Sip
 
