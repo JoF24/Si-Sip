@@ -29,12 +29,12 @@ Melalui sistem ini, petani kopi dapat:
 2. Import file `coba_ppl.sql` ke dalam database lokal Anda (contoh: phpMyAdmin).
 3. Jalankan server lokal, lalu masuk ke direktori project:
 
-   ```bash
+   ```
    cd Si-Sip
    ```
 4. Jalankan perintah berikut untuk menjalankan project Laravel:
 
-   ```bash
+   ```
    php artisan serve
    ```
 
